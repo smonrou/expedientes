@@ -1,0 +1,46 @@
+# Expedientes
+
+``` markdown
+expedientes
+├─ .mvn
+│  └─ wrapper
+│     └─ maven-wrapper.properties
+├─ mvnw
+├─ mvnw.cmd
+├─ pom.xml
+├─ README.md
+└─ src
+   ├─ main
+   │  ├─ java
+   │  │  └─ gt
+   │  │     └─ edu
+   │  │        └─ cunori
+   │  │           └─ expedientes
+   │  │              ├─ api
+   │  │              │  ├─ controller
+   │  │              │  └─ dto
+   │  │              ├─ config
+   │  │              ├─ domain
+   │  │              │  ├─ entity
+   │  │              │  ├─ enums
+   │  │              │  └─ repository
+   │  │              ├─ ExpedientesApplication.java
+   │  │              ├─ security
+   │  │              ├─ service
+   │  │              └─ shared
+   │  │                 └─ exception
+   │  └─ resources
+   │     ├─ application.properties
+   │     ├─ db
+   │     │  └─ migration
+   │     │     └─ V1__esquema.sql
+   │     ├─ static
+   │     └─ templates
+   └─ test
+      └─ java
+         └─ gt
+            └─ edu
+               └─ cunori
+                  └─ expedientes
+                     └─ ExpedientesApplicationTests.java
+```
