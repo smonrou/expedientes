@@ -150,11 +150,14 @@ public class JustificacionDtos {
     // DOCUMENTO
     // ─────────────────────────────────────────
 
-    /** DTO de respuesta para un documento adjunto de justificación. */
+    /**
+     * DTO de respuesta para un documento adjunto.
+     * No incluye el contenido binario — ese se sirve por el endpoint de descarga.
+     */
     public static class DocumentoResponse {
         private Long id;
-        private String rutaArchivo;
         private String nombreOriginal;
+        private String tipoMime;
         private LocalDateTime subidoEn;
 
         public DocumentoResponse() {}
@@ -162,11 +165,11 @@ public class JustificacionDtos {
         public Long getId() { return id; }
         public void setId(Long id) { this.id = id; }
 
-        public String getRutaArchivo() { return rutaArchivo; }
-        public void setRutaArchivo(String rutaArchivo) { this.rutaArchivo = rutaArchivo; }
-
         public String getNombreOriginal() { return nombreOriginal; }
         public void setNombreOriginal(String nombreOriginal) { this.nombreOriginal = nombreOriginal; }
+
+        public String getTipoMime() { return tipoMime; }
+        public void setTipoMime(String tipoMime) { this.tipoMime = tipoMime; }
 
         public LocalDateTime getSubidoEn() { return subidoEn; }
         public void setSubidoEn(LocalDateTime subidoEn) { this.subidoEn = subidoEn; }

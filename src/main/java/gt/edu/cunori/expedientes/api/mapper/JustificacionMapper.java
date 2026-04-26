@@ -47,7 +47,11 @@ public interface JustificacionMapper {
 
     /**
      * Convierte un DocumentoJustificacion a su DTO de respuesta.
+     * No incluye el contenido binario — ese se sirve por el endpoint de descarga.
      */
     @Mapping(target = "id", expression = "java(d.getId() != null ? d.getId().longValue() : null)")
+    @Mapping(target = "nombreOriginal", source = "nombreOriginal")
+    @Mapping(target = "tipoMime", source = "tipoMime")
+    @Mapping(target = "subidoEn", source = "subidoEn")
     JustificacionDtos.DocumentoResponse documentoToResponse(DocumentoJustificacion d);
 }

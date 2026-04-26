@@ -1,16 +1,20 @@
 package gt.edu.cunori.expedientes.api.controller;
 
 import gt.edu.cunori.expedientes.api.dto.justificacion.CambioEstadoRequest;
-import gt.edu.cunori.expedientes.api.dto.justificacion.DocumentoRequest;
 import gt.edu.cunori.expedientes.api.dto.justificacion.JustificacionDtos;
 import gt.edu.cunori.expedientes.api.dto.justificacion.JustificacionRequest;
+import gt.edu.cunori.expedientes.domain.entity.DocumentoJustificacion;
 import gt.edu.cunori.expedientes.domain.enums.EstadoJustificacion;
 import gt.edu.cunori.expedientes.service.JustificacionService;
 import jakarta.validation.Valid;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -18,7 +22,7 @@ import java.util.List;
  * Controlador REST para la gestión de justificaciones de inasistencia.
  *
  * Roles:
- * - ESTUDIANTE: presenta justificaciones y agrega documentos a las suyas.
+ * - ESTUDIANTE: presenta justificaciones y sube documentos a las suyas.
  * - COORDINADOR: consulta y cambia estado de justificaciones de su carrera.
  * - ADMIN: acceso completo.
  */
@@ -33,8 +37,7 @@ public class JustificacionController {
     }
 
     /**
-     * Retorna todas las justificaciones de un estudiante.
-     * El estudiante solo puede ver las suyas; ADMIN y COORDINADOR pueden ver cualquier expediente.
+     * Retorna todas las justificaciones de un estudiante en formato resumen.
      */
     @GetMapping("/estudiante/{estudianteId}")
     @PreAuthorize("hasAnyRole('ADMIN', 'COORDINADOR', 'ESTUDIANTE')")
@@ -44,7 +47,8 @@ public class JustificacionController {
     }
 
     /**
-     * Retorna todas las justificaciones de una carrera con filtro opcional por estado.
+     * Retorna todas las justificaciones de una carrera con filtro opcional por
+     * estado.
      * Solo ADMIN y COORDINADOR.
      */
     @GetMapping("/carrera/{carreraId}")
@@ -66,7 +70,7 @@ public class JustificacionController {
 
     /**
      * Presenta una nueva justificación de inasistencia.
-     * Solo el propio ESTUDIANTE o un ADMIN pueden presentar justificaciones.
+     * Solo ADMIN o el propio ESTUDIANTE.
      */
     @PostMapping("/estudiante/{estudianteId}")
     @PreAuthorize("hasAnyRole('ADMIN', 'ESTUDIANTE')")
@@ -78,8 +82,7 @@ public class JustificacionController {
     }
 
     /**
-     * Cambia el estado de una justificación.
-     * El parámetro revisadoPorId indica el usuario que realiza la revisión.
+     * Cambia el estado de una justificación siguiendo el flujo definido.
      * Solo ADMIN y COORDINADOR.
      */
     @PatchMapping("/{id}/estado")
@@ -92,21 +95,44 @@ public class JustificacionController {
     }
 
     /**
-     * Agrega un documento adjunto a una justificación.
-     * Solo el ESTUDIANTE dueño o un ADMIN pueden adjuntar documentos.
+     * Sube un documento adjunto a una justificación como BLOB en la base de datos.
+     * Recibe el archivo como multipart/form-data.
+     * Solo ADMIN o el propio ESTUDIANTE.
      */
-    @PostMapping("/{justificacionId}/documentos")
+    @PostMapping(value = "/{justificacionId}/documentos", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @PreAuthorize("hasAnyRole('ADMIN', 'ESTUDIANTE')")
-    public ResponseEntity<JustificacionDtos.JustificacionResponse> agregarDocumento(
+    public ResponseEntity<JustificacionDtos.JustificacionResponse> subirDocumento(
             @PathVariable Long justificacionId,
-            @Valid @RequestBody DocumentoRequest request) {
+            @RequestParam("archivo") MultipartFile archivo) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(justificacionService.agregarDocumento(justificacionId, request));
+                .body(justificacionService.agregarDocumento(justificacionId, archivo));
+    }
+
+    /**
+     * Descarga un documento adjunto desde la base de datos.
+     * Retorna el contenido binario con el Content-Type y Content-Disposition
+     * correctos.
+     */
+    @GetMapping("/documentos/{documentoId}/descargar")
+    @PreAuthorize("hasAnyRole('ADMIN', 'COORDINADOR', 'ESTUDIANTE')")
+    public ResponseEntity<byte[]> descargarDocumento(@PathVariable Long documentoId) {
+        DocumentoJustificacion documento = justificacionService.descargarDocumento(documentoId);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType(documento.getTipoMime()));
+        headers.setContentDisposition(
+                ContentDisposition.attachment()
+                        .filename(documento.getNombreOriginal())
+                        .build());
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(documento.getContenido());
     }
 
     /**
      * Elimina un documento adjunto de una justificación.
-     * Solo ADMIN o el ESTUDIANTE dueño de la justificación.
+     * Solo ADMIN o el propio ESTUDIANTE.
      */
     @DeleteMapping("/{justificacionId}/documentos/{documentoId}")
     @PreAuthorize("hasAnyRole('ADMIN', 'ESTUDIANTE')")
