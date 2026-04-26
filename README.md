@@ -18,11 +18,51 @@ expedientes
    │  │           └─ expedientes
    │  │              ├─ api
    │  │              │  ├─ controller
-   │  │              │  │  └─ AuthController.java
-   │  │              │  └─ dto
-   │  │              │     └─ auth
-   │  │              │        ├─ LoginRequest.java
-   │  │              │        └─ LoginResponse.java
+   │  │              │  │  ├─ ActividadExtracurricularController.java
+   │  │              │  │  ├─ AuthController.java
+   │  │              │  │  ├─ CatalogoController.java
+   │  │              │  │  ├─ EstudianteController.java
+   │  │              │  │  ├─ JustificacionController.java
+   │  │              │  │  ├─ NotificacionController.java
+   │  │              │  │  └─ UsuarioController.java
+   │  │              │  ├─ dto
+   │  │              │  │  ├─ actividad
+   │  │              │  │  │  ├─ ActividadRequest.java
+   │  │              │  │  │  └─ ActividadResponse.java
+   │  │              │  │  ├─ auth
+   │  │              │  │  │  ├─ LoginRequest.java
+   │  │              │  │  │  └─ LoginResponse.java
+   │  │              │  │  ├─ catalogo
+   │  │              │  │  │  ├─ CarreraRequest.java
+   │  │              │  │  │  ├─ CarreraResponse.java
+   │  │              │  │  │  ├─ CatalogoRequest.java
+   │  │              │  │  │  └─ CatalogoResponse.java
+   │  │              │  │  ├─ estudiante
+   │  │              │  │  │  ├─ EstudianteCreateRequest.java
+   │  │              │  │  │  ├─ EstudianteResponse.java
+   │  │              │  │  │  ├─ EstudianteResumenResponse.java
+   │  │              │  │  │  ├─ EstudianteSubDtos.java
+   │  │              │  │  │  └─ EstudianteUpdateRequest.java
+   │  │              │  │  ├─ justificacion
+   │  │              │  │  │  ├─ CambioEstadoRequest.java
+   │  │              │  │  │  ├─ JustificacionDtos.java
+   │  │              │  │  │  └─ JustificacionRequest.java
+   │  │              │  │  ├─ notificacion
+   │  │              │  │  │  ├─ ConteoNoLeidasResponse.java
+   │  │              │  │  │  └─ NotificacionResponse.java
+   │  │              │  │  └─ usuario
+   │  │              │  │     ├─ CambioContrasenaRequest.java
+   │  │              │  │     ├─ UsuarioCreateRequest.java
+   │  │              │  │     ├─ UsuarioResponse.java
+   │  │              │  │     └─ UsuarioUpdateRequest.java
+   │  │              │  └─ mapper
+   │  │              │     ├─ ActividadMapper.java
+   │  │              │     ├─ CarreraMapper.java
+   │  │              │     ├─ CatalogoSimpleMapper.java
+   │  │              │     ├─ EstudianteMapper.java
+   │  │              │     ├─ JustificacionMapper.java
+   │  │              │     ├─ NotificacionMapper.java
+   │  │              │     └─ UsuarioMapper.java
    │  │              ├─ config
    │  │              │  └─ SecurityConfig.java
    │  │              ├─ domain
@@ -77,7 +117,18 @@ expedientes
    │  │              │  ├─ JwtUtil.java
    │  │              │  └─ UserDetailsServiceImpl.java
    │  │              ├─ service
-   │  │              │  └─ AuthService.java
+   │  │              │  ├─ ActividadExtracurricularService.java
+   │  │              │  ├─ AlergiaService.java
+   │  │              │  ├─ AuthService.java
+   │  │              │  ├─ CarreraService.java
+   │  │              │  ├─ EstudianteService.java
+   │  │              │  ├─ JustificacionService.java
+   │  │              │  ├─ MotivoInasistenciaService.java
+   │  │              │  ├─ NotificacionService.java
+   │  │              │  ├─ TipoActividadService.java
+   │  │              │  ├─ TipoDiscapacidadService.java
+   │  │              │  ├─ TipoSangreService.java
+   │  │              │  └─ UsuarioService.java
    │  │              └─ shared
    │  │                 └─ exception
    │  │                    ├─ ApiError.java
@@ -88,7 +139,8 @@ expedientes
    │     ├─ application.properties
    │     ├─ db
    │     │  └─ migration
-   │     │     └─ V1__esquema.sql
+   │     │     ├─ V1__esquema.sql
+   │     │     └─ V2__blob_documentos.sql
    │     ├─ static
    │     └─ templates
    └─ test
