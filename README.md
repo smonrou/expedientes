@@ -18,8 +18,13 @@ expedientes
    │  │           └─ expedientes
    │  │              ├─ api
    │  │              │  ├─ controller
+   │  │              │  │  └─ AuthController.java
    │  │              │  └─ dto
+   │  │              │     └─ auth
+   │  │              │        ├─ LoginRequest.java
+   │  │              │        └─ LoginResponse.java
    │  │              ├─ config
+   │  │              │  └─ SecurityConfig.java
    │  │              ├─ domain
    │  │              │  ├─ entity
    │  │              │  │  ├─ ActividadExtracurricular.java
@@ -47,11 +52,38 @@ expedientes
    │  │              │  │  ├─ Rol.java
    │  │              │  │  └─ TipoTelefono.java
    │  │              │  └─ repository
+   │  │              │     ├─ ActividadExtracurricularRepository.java
+   │  │              │     ├─ AlergiaRepository.java
+   │  │              │     ├─ CarreraRepository.java
+   │  │              │     ├─ CondicionMedicaRepository.java
+   │  │              │     ├─ ContactoEmergenciaRepository.java
+   │  │              │     ├─ DocumentoJustificacionRepository.java
+   │  │              │     ├─ EstudianteAlergiaRepository.java
+   │  │              │     ├─ EstudianteDiscapacidadRepository.java
+   │  │              │     ├─ EstudianteRepository.java
+   │  │              │     ├─ FechaInasistenciaRepository.java
+   │  │              │     ├─ JustificacionInasistenciaRepository.java
+   │  │              │     ├─ MotivoInasistenciaRepository.java
+   │  │              │     ├─ NotificacionRepository.java
+   │  │              │     ├─ TelefonoContactoRepository.java
+   │  │              │     ├─ TelefonoEstudianteRepository.java
+   │  │              │     ├─ TipoActividadRepository.java
+   │  │              │     ├─ TipoDiscapacidadRepository.java
+   │  │              │     ├─ TipoSangreRepository.java
+   │  │              │     └─ UsuarioRepository.java
    │  │              ├─ ExpedientesApplication.java
    │  │              ├─ security
+   │  │              │  ├─ JwtFilter.java
+   │  │              │  ├─ JwtUtil.java
+   │  │              │  └─ UserDetailsServiceImpl.java
    │  │              ├─ service
+   │  │              │  └─ AuthService.java
    │  │              └─ shared
    │  │                 └─ exception
+   │  │                    ├─ ApiError.java
+   │  │                    ├─ BusinessException.java
+   │  │                    ├─ GlobalExceptionHandler.java
+   │  │                    └─ ResourceNotFoundException.java
    │  └─ resources
    │     ├─ application.properties
    │     ├─ db
@@ -66,4 +98,5 @@ expedientes
                └─ cunori
                   └─ expedientes
                      └─ ExpedientesApplicationTests.java
+
 ```
