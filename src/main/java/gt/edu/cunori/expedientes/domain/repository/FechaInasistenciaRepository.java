@@ -25,4 +25,9 @@ public interface FechaInasistenciaRepository extends JpaRepository<FechaInasiste
 
     /** Elimina todas las fechas de una justificación (usado al editar). */
     void deleteByJustificacionId(Long justificacionId);
+
+    /** Elimina una fecha específica de una justificación. */
+    void deleteByJustificacionIdAndFecha(Long justificacionId, LocalDate fecha);
+
+    boolean existsByEstudianteIdAndFecha(Long estudianteId, LocalDate fecha);
 }
