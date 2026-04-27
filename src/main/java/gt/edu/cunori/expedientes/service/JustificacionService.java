@@ -142,7 +142,7 @@ public class JustificacionService {
 
         // Validar fechas duplicadas en justificaciones activas del mismo estudiante
         for (java.time.LocalDate fecha : request.getFechas()) {
-            if (fechaRepository.existsByEstudianteIdAndFecha(estudianteId, fecha)) {
+            if (fechaRepository.existsByJustificacionEstudianteIdAndFecha(estudianteId, fecha)) {
                 throw new BusinessException("La fecha " + fecha + " ya está cubierta por otra justificación activa.");
             }
         }

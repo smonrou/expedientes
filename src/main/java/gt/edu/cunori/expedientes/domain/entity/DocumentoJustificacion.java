@@ -29,7 +29,7 @@ public class DocumentoJustificacion {
     private String tipoMime;
  
     @Lob
-    @Column(name = "contenido", nullable = false)
+    @Column(name = "contenido", nullable = false, columnDefinition = "LONGBLOB")
     private byte[] contenido;
  
     @Column(name = "subido_en", nullable = false, updatable = false)
