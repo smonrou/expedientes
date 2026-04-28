@@ -125,7 +125,8 @@ public class SecurityConfig {
         // Orígenes permitidos: desarrollo local y producción
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",   // Vite dev server
-                "http://localhost:3000"    // Alternativa CRA/Next
+                "http://localhost:3000",
+                "https://expedientes-frontend-gamma.vercel.app"    
         ));
 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
