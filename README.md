@@ -5,6 +5,8 @@ expedientes
 ├─ .mvn
 │  └─ wrapper
 │     └─ maven-wrapper.properties
+├─ certs
+│  └─ ca.pem
 ├─ mvnw
 ├─ mvnw.cmd
 ├─ pom.xml
