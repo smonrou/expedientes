@@ -70,7 +70,6 @@ public class EstudianteCreateRequest {
     @Size(max = 255)
     private String direccion;
 
-    @Size(max = 255)
     private Boolean pensumCerrado = false;
 
     private LocalDate fechaCierrePensum;
