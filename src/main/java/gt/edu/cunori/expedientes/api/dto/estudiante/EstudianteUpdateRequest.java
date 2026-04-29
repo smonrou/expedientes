@@ -52,41 +52,113 @@ public class EstudianteUpdateRequest {
 
     private LocalDate fechaCierrePensum;
 
-    public EstudianteUpdateRequest() {}
+    @Size(max = 255)
+    private String rutaFotografia;
 
-    public Long getCarreraId() { return carreraId; }
-    public void setCarreraId(Long carreraId) { this.carreraId = carreraId; }
+    public EstudianteUpdateRequest() {
+    }
 
-    public Long getTipoSangreId() { return tipoSangreId; }
-    public void setTipoSangreId(Long tipoSangreId) { this.tipoSangreId = tipoSangreId; }
+    public Long getCarreraId() {
+        return carreraId;
+    }
 
-    public String getNombres() { return nombres; }
-    public void setNombres(String nombres) { this.nombres = nombres; }
+    public void setCarreraId(Long carreraId) {
+        this.carreraId = carreraId;
+    }
 
-    public String getApellidos() { return apellidos; }
-    public void setApellidos(String apellidos) { this.apellidos = apellidos; }
+    public Long getTipoSangreId() {
+        return tipoSangreId;
+    }
 
-    public LocalDate getFechaNacimiento() { return fechaNacimiento; }
-    public void setFechaNacimiento(LocalDate fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
+    public void setTipoSangreId(Long tipoSangreId) {
+        this.tipoSangreId = tipoSangreId;
+    }
 
-    public Genero getGenero() { return genero; }
-    public void setGenero(Genero genero) { this.genero = genero; }
+    public String getNombres() {
+        return nombres;
+    }
 
-    public String getCorreoInstitucional() { return correoInstitucional; }
-    public void setCorreoInstitucional(String correoInstitucional) { this.correoInstitucional = correoInstitucional; }
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
 
-    public String getCorreoPersonal() { return correoPersonal; }
-    public void setCorreoPersonal(String correoPersonal) { this.correoPersonal = correoPersonal; }
+    public String getApellidos() {
+        return apellidos;
+    }
 
-    public String getDireccion() { return direccion; }
-    public void setDireccion(String direccion) { this.direccion = direccion; }
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
 
-    public Boolean getInscrito() { return inscrito; }
-    public void setInscrito(Boolean inscrito) { this.inscrito = inscrito; }
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
 
-    public Boolean getPensumCerrado() { return pensumCerrado; }
-    public void setPensumCerrado(Boolean pensumCerrado) { this.pensumCerrado = pensumCerrado; }
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
-    public LocalDate getFechaCierrePensum() { return fechaCierrePensum; }
-    public void setFechaCierrePensum(LocalDate fechaCierrePensum) { this.fechaCierrePensum = fechaCierrePensum; }
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public String getCorreoInstitucional() {
+        return correoInstitucional;
+    }
+
+    public void setCorreoInstitucional(String correoInstitucional) {
+        this.correoInstitucional = correoInstitucional;
+    }
+
+    public String getCorreoPersonal() {
+        return correoPersonal;
+    }
+
+    public void setCorreoPersonal(String correoPersonal) {
+        this.correoPersonal = correoPersonal;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public Boolean getInscrito() {
+        return inscrito;
+    }
+
+    public void setInscrito(Boolean inscrito) {
+        this.inscrito = inscrito;
+    }
+
+    public Boolean getPensumCerrado() {
+        return pensumCerrado;
+    }
+
+    public void setPensumCerrado(Boolean pensumCerrado) {
+        this.pensumCerrado = pensumCerrado;
+    }
+
+    public LocalDate getFechaCierrePensum() {
+        return fechaCierrePensum;
+    }
+
+    public void setFechaCierrePensum(LocalDate fechaCierrePensum) {
+        this.fechaCierrePensum = fechaCierrePensum;
+    }
+
+    public String getRutaFotografia() {
+        return rutaFotografia;
+    }
+
+    public void setRutaFotografia(String rutaFotografia) {
+        this.rutaFotografia = rutaFotografia;
+    }
 }

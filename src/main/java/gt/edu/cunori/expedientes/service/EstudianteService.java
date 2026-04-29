@@ -186,7 +186,9 @@ public class EstudianteService {
         estudiante.setAnioIngreso(request.getAnioIngreso());
         estudiante.setDireccion(request.getDireccion());
         estudiante.setInscrito(true);
-        estudiante.setPensumCerrado(false);
+        estudiante.setPensumCerrado(request.getPensumCerrado() != null ? request.getPensumCerrado() : false);
+        estudiante.setFechaCierrePensum(request.getFechaCierrePensum());
+        estudiante.setRutaFotografia(request.getRutaFotografia());
         estudianteRepository.save(estudiante);
 
         // Persistir sub-entidades
@@ -243,6 +245,7 @@ public class EstudianteService {
         estudiante.setInscrito(request.getInscrito());
         estudiante.setPensumCerrado(request.getPensumCerrado());
         estudiante.setFechaCierrePensum(request.getFechaCierrePensum());
+        estudiante.setRutaFotografia(request.getRutaFotografia());
 
         return mapper.toResponse(estudianteRepository.save(estudiante));
     }

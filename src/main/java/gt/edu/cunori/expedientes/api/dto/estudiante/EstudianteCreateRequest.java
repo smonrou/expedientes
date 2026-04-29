@@ -70,6 +70,14 @@ public class EstudianteCreateRequest {
     @Size(max = 255)
     private String direccion;
 
+    @Size(max = 255)
+    private Boolean pensumCerrado = false;
+
+    private LocalDate fechaCierrePensum;
+
+    @Size(max = 255)
+    private String rutaFotografia;
+
     // ── Sub-entidades opcionales ─────────────
     @Valid
     private List<EstudianteSubDtos.TelefonoRequest> telefonos = new ArrayList<>();
@@ -86,62 +94,182 @@ public class EstudianteCreateRequest {
     @Valid
     private List<EstudianteSubDtos.ContactoEmergenciaRequest> contactosEmergencia = new ArrayList<>();
 
-    public EstudianteCreateRequest() {}
+    public EstudianteCreateRequest() {
+    }
 
-    public String getNombreUsuario() { return nombreUsuario; }
-    public void setNombreUsuario(String nombreUsuario) { this.nombreUsuario = nombreUsuario; }
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
 
-    public String getContrasena() { return contrasena; }
-    public void setContrasena(String contrasena) { this.contrasena = contrasena; }
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
 
-    public String getNumeroCarne() { return numeroCarne; }
-    public void setNumeroCarne(String numeroCarne) { this.numeroCarne = numeroCarne; }
+    public String getContrasena() {
+        return contrasena;
+    }
 
-    public Long getCarreraId() { return carreraId; }
-    public void setCarreraId(Long carreraId) { this.carreraId = carreraId; }
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
-    public Integer getAnioIngreso() { return anioIngreso; }
-    public void setAnioIngreso(Integer anioIngreso) { this.anioIngreso = anioIngreso; }
+    public String getNumeroCarne() {
+        return numeroCarne;
+    }
 
-    public Long getTipoSangreId() { return tipoSangreId; }
-    public void setTipoSangreId(Long tipoSangreId) { this.tipoSangreId = tipoSangreId; }
+    public void setNumeroCarne(String numeroCarne) {
+        this.numeroCarne = numeroCarne;
+    }
 
-    public String getNombres() { return nombres; }
-    public void setNombres(String nombres) { this.nombres = nombres; }
+    public Long getCarreraId() {
+        return carreraId;
+    }
 
-    public String getApellidos() { return apellidos; }
-    public void setApellidos(String apellidos) { this.apellidos = apellidos; }
+    public void setCarreraId(Long carreraId) {
+        this.carreraId = carreraId;
+    }
 
-    public String getCui() { return cui; }
-    public void setCui(String cui) { this.cui = cui; }
+    public Integer getAnioIngreso() {
+        return anioIngreso;
+    }
 
-    public LocalDate getFechaNacimiento() { return fechaNacimiento; }
-    public void setFechaNacimiento(LocalDate fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
+    public void setAnioIngreso(Integer anioIngreso) {
+        this.anioIngreso = anioIngreso;
+    }
 
-    public Genero getGenero() { return genero; }
-    public void setGenero(Genero genero) { this.genero = genero; }
+    public Long getTipoSangreId() {
+        return tipoSangreId;
+    }
 
-    public String getCorreoInstitucional() { return correoInstitucional; }
-    public void setCorreoInstitucional(String correoInstitucional) { this.correoInstitucional = correoInstitucional; }
+    public void setTipoSangreId(Long tipoSangreId) {
+        this.tipoSangreId = tipoSangreId;
+    }
 
-    public String getCorreoPersonal() { return correoPersonal; }
-    public void setCorreoPersonal(String correoPersonal) { this.correoPersonal = correoPersonal; }
+    public String getNombres() {
+        return nombres;
+    }
 
-    public String getDireccion() { return direccion; }
-    public void setDireccion(String direccion) { this.direccion = direccion; }
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
 
-    public List<EstudianteSubDtos.TelefonoRequest> getTelefonos() { return telefonos; }
-    public void setTelefonos(List<EstudianteSubDtos.TelefonoRequest> telefonos) { this.telefonos = telefonos; }
+    public String getApellidos() {
+        return apellidos;
+    }
 
-    public List<EstudianteSubDtos.CondicionMedicaRequest> getCondicionesMedicas() { return condicionesMedicas; }
-    public void setCondicionesMedicas(List<EstudianteSubDtos.CondicionMedicaRequest> condicionesMedicas) { this.condicionesMedicas = condicionesMedicas; }
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
 
-    public List<EstudianteSubDtos.AlergiaRequest> getAlergias() { return alergias; }
-    public void setAlergias(List<EstudianteSubDtos.AlergiaRequest> alergias) { this.alergias = alergias; }
+    public String getCui() {
+        return cui;
+    }
 
-    public List<EstudianteSubDtos.DiscapacidadRequest> getDiscapacidades() { return discapacidades; }
-    public void setDiscapacidades(List<EstudianteSubDtos.DiscapacidadRequest> discapacidades) { this.discapacidades = discapacidades; }
+    public void setCui(String cui) {
+        this.cui = cui;
+    }
 
-    public List<EstudianteSubDtos.ContactoEmergenciaRequest> getContactosEmergencia() { return contactosEmergencia; }
-    public void setContactosEmergencia(List<EstudianteSubDtos.ContactoEmergenciaRequest> contactosEmergencia) { this.contactosEmergencia = contactosEmergencia; }
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public String getCorreoInstitucional() {
+        return correoInstitucional;
+    }
+
+    public void setCorreoInstitucional(String correoInstitucional) {
+        this.correoInstitucional = correoInstitucional;
+    }
+
+    public String getCorreoPersonal() {
+        return correoPersonal;
+    }
+
+    public void setCorreoPersonal(String correoPersonal) {
+        this.correoPersonal = correoPersonal;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public List<EstudianteSubDtos.TelefonoRequest> getTelefonos() {
+        return telefonos;
+    }
+
+    public void setTelefonos(List<EstudianteSubDtos.TelefonoRequest> telefonos) {
+        this.telefonos = telefonos;
+    }
+
+    public List<EstudianteSubDtos.CondicionMedicaRequest> getCondicionesMedicas() {
+        return condicionesMedicas;
+    }
+
+    public void setCondicionesMedicas(List<EstudianteSubDtos.CondicionMedicaRequest> condicionesMedicas) {
+        this.condicionesMedicas = condicionesMedicas;
+    }
+
+    public List<EstudianteSubDtos.AlergiaRequest> getAlergias() {
+        return alergias;
+    }
+
+    public void setAlergias(List<EstudianteSubDtos.AlergiaRequest> alergias) {
+        this.alergias = alergias;
+    }
+
+    public List<EstudianteSubDtos.DiscapacidadRequest> getDiscapacidades() {
+        return discapacidades;
+    }
+
+    public void setDiscapacidades(List<EstudianteSubDtos.DiscapacidadRequest> discapacidades) {
+        this.discapacidades = discapacidades;
+    }
+
+    public List<EstudianteSubDtos.ContactoEmergenciaRequest> getContactosEmergencia() {
+        return contactosEmergencia;
+    }
+
+    public void setContactosEmergencia(List<EstudianteSubDtos.ContactoEmergenciaRequest> contactosEmergencia) {
+        this.contactosEmergencia = contactosEmergencia;
+    }
+
+    public Boolean getPensumCerrado() {
+        return pensumCerrado;
+    }
+
+    public void setPensumCerrado(Boolean pensumCerrado) {
+        this.pensumCerrado = pensumCerrado;
+    }
+
+    public LocalDate getFechaCierrePensum() {
+        return fechaCierrePensum;
+    }
+
+    public void setFechaCierrePensum(LocalDate fechaCierrePensum) {
+        this.fechaCierrePensum = fechaCierrePensum;
+    }
+
+    public String getRutaFotografia() {
+        return rutaFotografia;
+    }
+
+    public void setRutaFotografia(String rutaFotografia) {
+        this.rutaFotografia = rutaFotografia;
+    }
 }
