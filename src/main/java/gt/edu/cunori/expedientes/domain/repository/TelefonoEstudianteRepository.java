@@ -16,6 +16,9 @@ public interface TelefonoEstudianteRepository extends JpaRepository<TelefonoEstu
     /** Retorna todos los teléfonos registrados para un estudiante. */
     List<TelefonoEstudiante> findByEstudianteId(Long estudianteId);
 
-    /** Elimina todos los teléfonos de un estudiante (usado al actualizar la lista completa). */
+    /**
+     * Elimina todos los teléfonos de un estudiante (usado al actualizar la lista
+     * completa).
+     */
     void deleteByEstudianteId(Long estudianteId);
 }

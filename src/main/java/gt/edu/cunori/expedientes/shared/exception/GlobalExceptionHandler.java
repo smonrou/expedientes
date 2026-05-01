@@ -18,166 +18,160 @@ import java.util.List;
  * Intercepta excepciones lanzadas en controllers y servicios,
  * y las transforma en respuestas JSON con el formato {@link ApiError}.
  *
- * <p>Excepciones manejadas:
+ * <p>
+ * Excepciones manejadas:
  * <ul>
- *   <li>{@link ResourceNotFoundException} → 404 Not Found</li>
- *   <li>{@link BusinessException} → 409 Conflict</li>
- *   <li>{@link MethodArgumentNotValidException} → 400 Bad Request (con detalle por campo)</li>
- *   <li>{@link BadCredentialsException} → 401 Unauthorized</li>
- *   <li>{@link DisabledException} → 401 Unauthorized</li>
- *   <li>{@link AccessDeniedException} → 403 Forbidden</li>
- *   <li>{@link Exception} → 500 Internal Server Error (fallback)</li>
+ * <li>{@link ResourceNotFoundException} → 404 Not Found</li>
+ * <li>{@link BusinessException} → 409 Conflict</li>
+ * <li>{@link MethodArgumentNotValidException} → 400 Bad Request (con detalle
+ * por campo)</li>
+ * <li>{@link BadCredentialsException} → 401 Unauthorized</li>
+ * <li>{@link DisabledException} → 401 Unauthorized</li>
+ * <li>{@link AccessDeniedException} → 403 Forbidden</li>
+ * <li>{@link Exception} → 500 Internal Server Error (fallback)</li>
  * </ul>
  * </p>
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // ── 404 Not Found ────────────────────────────────────────────────────────
+        // ── 404 Not Found ────────────────────────────────────────────────────────
 
-    /**
-     * Maneja recursos no encontrados en la base de datos.
-     * Lanzado desde los servicios con {@link ResourceNotFoundException}.
-     */
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ApiError> handleResourceNotFound(
-            ResourceNotFoundException ex, HttpServletRequest request) {
+        /**
+         * Maneja recursos no encontrados en la base de datos.
+         * Lanzado desde los servicios con {@link ResourceNotFoundException}.
+         */
+        @ExceptionHandler(ResourceNotFoundException.class)
+        public ResponseEntity<ApiError> handleResourceNotFound(
+                        ResourceNotFoundException ex, HttpServletRequest request) {
 
-        ApiError error = new ApiError(
-                HttpStatus.NOT_FOUND.value(),
-                "Not Found",
-                ex.getMessage(),
-                request.getRequestURI()
-        );
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
-    }
+                ApiError error = new ApiError(
+                                HttpStatus.NOT_FOUND.value(),
+                                "Not Found",
+                                ex.getMessage(),
+                                request.getRequestURI());
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+        }
 
-    // ── 409 Conflict ─────────────────────────────────────────────────────────
+        // ── 409 Conflict ─────────────────────────────────────────────────────────
 
-    /**
-     * Maneja violaciones de reglas de negocio.
-     * Lanzado desde los servicios con {@link BusinessException}.
-     * Ejemplos: carné duplicado, correo ya registrado, transición de estado inválida.
-     */
-    @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ApiError> handleBusinessException(
-            BusinessException ex, HttpServletRequest request) {
+        /**
+         * Maneja violaciones de reglas de negocio.
+         * Lanzado desde los servicios con {@link BusinessException}.
+         * Ejemplos: carné duplicado, correo ya registrado, transición de estado
+         * inválida.
+         */
+        @ExceptionHandler(BusinessException.class)
+        public ResponseEntity<ApiError> handleBusinessException(
+                        BusinessException ex, HttpServletRequest request) {
 
-        ApiError error = new ApiError(
-                HttpStatus.CONFLICT.value(),
-                "Conflict",
-                ex.getMessage(),
-                request.getRequestURI()
-        );
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
-    }
+                ApiError error = new ApiError(
+                                HttpStatus.CONFLICT.value(),
+                                "Conflict",
+                                ex.getMessage(),
+                                request.getRequestURI());
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
+        }
 
-    // ── 400 Bad Request (Bean Validation) ────────────────────────────────────
+        // ── 400 Bad Request (Bean Validation) ────────────────────────────────────
 
-    /**
-     * Maneja errores de validación de DTOs anotados con {@code @Valid}.
-     * Retorna la lista de todos los campos que fallaron la validación,
-     * con su mensaje de error específico.
-     */
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiError> handleValidationErrors(
-            MethodArgumentNotValidException ex, HttpServletRequest request) {
+        /**
+         * Maneja errores de validación de DTOs anotados con {@code @Valid}.
+         * Retorna la lista de todos los campos que fallaron la validación,
+         * con su mensaje de error específico.
+         */
+        @ExceptionHandler(MethodArgumentNotValidException.class)
+        public ResponseEntity<ApiError> handleValidationErrors(
+                        MethodArgumentNotValidException ex, HttpServletRequest request) {
 
-        List<ApiError.CampoError> erroresCampos = ex.getBindingResult()
-                .getFieldErrors()
-                .stream()
-                .map((FieldError fe) -> new ApiError.CampoError(
-                        fe.getField(),
-                        fe.getDefaultMessage()
-                ))
-                .toList();
+                List<ApiError.CampoError> erroresCampos = ex.getBindingResult()
+                                .getFieldErrors()
+                                .stream()
+                                .map((FieldError fe) -> new ApiError.CampoError(
+                                                fe.getField(),
+                                                fe.getDefaultMessage()))
+                                .toList();
 
-        ApiError error = new ApiError(
-                HttpStatus.BAD_REQUEST.value(),
-                "Bad Request",
-                "La solicitud contiene campos inválidos.",
-                request.getRequestURI()
-        );
-        error.setErroresCampos(erroresCampos);
+                ApiError error = new ApiError(
+                                HttpStatus.BAD_REQUEST.value(),
+                                "Bad Request",
+                                "La solicitud contiene campos inválidos.",
+                                request.getRequestURI());
+                error.setErroresCampos(erroresCampos);
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
-    }
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+        }
 
-    // ── 401 Unauthorized ─────────────────────────────────────────────────────
+        // ── 401 Unauthorized ─────────────────────────────────────────────────────
 
-    /**
-     * Maneja credenciales incorrectas durante el login.
-     * Lanzado por Spring Security cuando el correo o la contraseña no coinciden.
-     */
-    @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<ApiError> handleBadCredentials(
-            BadCredentialsException ex, HttpServletRequest request) {
+        /**
+         * Maneja credenciales incorrectas durante el login.
+         * Lanzado por Spring Security cuando el correo o la contraseña no coinciden.
+         */
+        @ExceptionHandler(BadCredentialsException.class)
+        public ResponseEntity<ApiError> handleBadCredentials(
+                        BadCredentialsException ex, HttpServletRequest request) {
 
-        ApiError error = new ApiError(
-                HttpStatus.UNAUTHORIZED.value(),
-                "Unauthorized",
-                "Correo o contraseña incorrectos.",
-                request.getRequestURI()
-        );
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
-    }
+                ApiError error = new ApiError(
+                                HttpStatus.UNAUTHORIZED.value(),
+                                "Unauthorized",
+                                "Correo o contraseña incorrectos.",
+                                request.getRequestURI());
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+        }
 
-    /**
-     * Maneja intentos de login de usuarios desactivados en el sistema.
-     * Lanzado por {@link gt.edu.cunori.expedientes.security.UserDetailsServiceImpl}.
-     */
-    @ExceptionHandler(DisabledException.class)
-    public ResponseEntity<ApiError> handleDisabledUser(
-            DisabledException ex, HttpServletRequest request) {
+        /**
+         * Maneja intentos de login de usuarios desactivados en el sistema.
+         * Lanzado por
+         * {@link gt.edu.cunori.expedientes.security.UserDetailsServiceImpl}.
+         */
+        @ExceptionHandler(DisabledException.class)
+        public ResponseEntity<ApiError> handleDisabledUser(
+                        DisabledException ex, HttpServletRequest request) {
 
-        ApiError error = new ApiError(
-                HttpStatus.UNAUTHORIZED.value(),
-                "Unauthorized",
-                "La cuenta está desactivada. Contacte al administrador.",
-                request.getRequestURI()
-        );
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
-    }
+                ApiError error = new ApiError(
+                                HttpStatus.UNAUTHORIZED.value(),
+                                "Unauthorized",
+                                "La cuenta está desactivada. Contacte al administrador.",
+                                request.getRequestURI());
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+        }
 
-    // ── 403 Forbidden ────────────────────────────────────────────────────────
+        // ── 403 Forbidden ────────────────────────────────────────────────────────
 
-    /**
-     * Maneja accesos a recursos sin el rol necesario.
-     * Lanzado por Spring Security cuando el usuario está autenticado
-     * pero no tiene permisos para el endpoint solicitado.
-     */
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<ApiError> handleAccessDenied(
-            AccessDeniedException ex, HttpServletRequest request) {
+        /**
+         * Maneja accesos a recursos sin el rol necesario.
+         * Lanzado por Spring Security cuando el usuario está autenticado
+         * pero no tiene permisos para el endpoint solicitado.
+         */
+        @ExceptionHandler(AccessDeniedException.class)
+        public ResponseEntity<ApiError> handleAccessDenied(
+                        AccessDeniedException ex, HttpServletRequest request) {
 
-        ApiError error = new ApiError(
-                HttpStatus.FORBIDDEN.value(),
-                "Forbidden",
-                "No tiene permisos para acceder a este recurso.",
-                request.getRequestURI()
-        );
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
-    }
+                ApiError error = new ApiError(
+                                HttpStatus.FORBIDDEN.value(),
+                                "Forbidden",
+                                "No tiene permisos para acceder a este recurso.",
+                                request.getRequestURI());
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
+        }
 
-    // ── 500 Internal Server Error (fallback) ─────────────────────────────────
+        // ── 500 Internal Server Error (fallback) ─────────────────────────────────
 
-    /**
-     * Captura cualquier excepción no manejada explícitamente.
-     * Evita que Spring retorne HTML de error en lugar de JSON.
-     * En producción, el mensaje interno no se expone al cliente.
-     */
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiError> handleGenericException(
-            Exception ex, HttpServletRequest request) {
-        ex.printStackTrace();//Solo para debuggear
-        ApiError error = new ApiError(
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                "Internal Server Error",
-                "Ocurrió un error inesperado. Intente de nuevo más tarde.",
-                request.getRequestURI()
-        );
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
-    }
+        /**
+         * Captura cualquier excepción no manejada explícitamente.
+         * Evita que Spring retorne HTML de error en lugar de JSON.
+         * En producción, el mensaje interno no se expone al cliente.
+         */
+        @ExceptionHandler(Exception.class)
+        public ResponseEntity<ApiError> handleGenericException(
+                        Exception ex, HttpServletRequest request) {
+                ApiError error = new ApiError(
+                                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                                "Internal Server Error",
+                                "Ocurrió un error inesperado. Intente de nuevo más tarde.",
+                                request.getRequestURI());
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
+        }
 
-    
 }

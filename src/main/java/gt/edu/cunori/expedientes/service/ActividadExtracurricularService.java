@@ -18,7 +18,8 @@ import java.util.List;
 
 /**
  * Servicio para la gestión de actividades extracurriculares de los estudiantes.
- * Permite listar, crear, actualizar y eliminar actividades asociadas a un expediente.
+ * Permite listar, crear, actualizar y eliminar actividades asociadas a un
+ * expediente.
  */
 @Service
 public class ActividadExtracurricularService {
@@ -67,7 +68,7 @@ public class ActividadExtracurricularService {
     @Transactional(readOnly = true)
     public ActividadResponse buscarPorId(Long id) {
         return actividadRepository.findById(id
-            
+
         )
                 .map(mapper::toResponse)
                 .orElseThrow(() -> new ResourceNotFoundException("ActividadExtracurricular", "id", id));
@@ -75,13 +76,16 @@ public class ActividadExtracurricularService {
 
     /**
      * Crea una nueva actividad extracurricular para un estudiante.
-     * Valida que la fecha de fin sea posterior a la fecha de inicio si se proporciona.
+     * Valida que la fecha de fin sea posterior a la fecha de inicio si se
+     * proporciona.
      *
      * @param estudianteId identificador del estudiante
      * @param request      datos de la nueva actividad
      * @return la actividad creada como DTO de respuesta
-     * @throws ResourceNotFoundException si no existe el estudiante o el tipo de actividad
-     * @throws BusinessException         si la fecha de fin es anterior a la fecha de inicio
+     * @throws ResourceNotFoundException si no existe el estudiante o el tipo de
+     *                                   actividad
+     * @throws BusinessException         si la fecha de fin es anterior a la fecha
+     *                                   de inicio
      */
     @Transactional
     public ActividadResponse crear(Long estudianteId, ActividadRequest request) {
@@ -115,8 +119,10 @@ public class ActividadExtracurricularService {
      * @param id           identificador de la actividad a actualizar
      * @param request      nuevos datos de la actividad
      * @return la actividad actualizada como DTO de respuesta
-     * @throws ResourceNotFoundException si no existe la actividad o el tipo de actividad
-     * @throws BusinessException         si la actividad no pertenece al estudiante, o si la fecha de fin es inválida
+     * @throws ResourceNotFoundException si no existe la actividad o el tipo de
+     *                                   actividad
+     * @throws BusinessException         si la actividad no pertenece al estudiante,
+     *                                   o si la fecha de fin es inválida
      */
     @Transactional
     public ActividadResponse actualizar(Long estudianteId, Long id, ActividadRequest request) {
@@ -151,7 +157,8 @@ public class ActividadExtracurricularService {
      * @param estudianteId identificador del estudiante dueño de la actividad
      * @param id           identificador de la actividad a eliminar
      * @throws ResourceNotFoundException si no existe la actividad
-     * @throws BusinessException         si la actividad no pertenece al estudiante indicado
+     * @throws BusinessException         si la actividad no pertenece al estudiante
+     *                                   indicado
      */
     @Transactional
     public void eliminar(Long estudianteId, Long id) {

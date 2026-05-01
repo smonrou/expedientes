@@ -43,7 +43,10 @@ public class ActividadExtracurricularController {
         return ResponseEntity.ok(actividadService.buscarPorId(id));
     }
 
-    /** Crea una nueva actividad extracurricular para el estudiante. Solo ADMIN o el propio ESTUDIANTE. */
+    /**
+     * Crea una nueva actividad extracurricular para el estudiante. Solo ADMIN o el
+     * propio ESTUDIANTE.
+     */
     @PostMapping
     @PreAuthorize("hasAnyRole('ADMIN', 'ESTUDIANTE')")
     public ResponseEntity<ActividadResponse> crear(
@@ -52,7 +55,10 @@ public class ActividadExtracurricularController {
         return ResponseEntity.status(HttpStatus.CREATED).body(actividadService.crear(estudianteId, request));
     }
 
-    /** Actualiza una actividad extracurricular existente. Solo ADMIN o el propio ESTUDIANTE. */
+    /**
+     * Actualiza una actividad extracurricular existente. Solo ADMIN o el propio
+     * ESTUDIANTE.
+     */
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'ESTUDIANTE')")
     public ResponseEntity<ActividadResponse> actualizar(

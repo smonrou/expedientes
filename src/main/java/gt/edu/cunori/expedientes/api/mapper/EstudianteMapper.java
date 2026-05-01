@@ -8,7 +8,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 /**
- * Mapper MapStruct para convertir la entidad Estudiante y sus sub-entidades a DTOs.
+ * Mapper MapStruct para convertir la entidad Estudiante y sus sub-entidades a
+ * DTOs.
  */
 @Mapper(componentModel = "spring")
 public interface EstudianteMapper {

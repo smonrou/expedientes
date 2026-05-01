@@ -6,7 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 /**
- * Mapper MapStruct para convertir ActividadExtracurricular a su DTO de respuesta.
+ * Mapper MapStruct para convertir ActividadExtracurricular a su DTO de
+ * respuesta.
  */
 @Mapper(componentModel = "spring")
 public interface ActividadMapper {

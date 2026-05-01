@@ -9,7 +9,8 @@ import java.util.List;
 
 /**
  * Repositorio para la relación N:M entre estudiante y alergia.
- * Usa clave compuesta {@link EstudianteAlergiaId} definida como clase interna de {@link EstudianteAlergia}.
+ * Usa clave compuesta {@link EstudianteAlergiaId} definida como clase interna
+ * de {@link EstudianteAlergia}.
  */
 @Repository
 public interface EstudianteAlergiaRepository extends JpaRepository<EstudianteAlergia, EstudianteAlergiaId> {
@@ -17,6 +18,8 @@ public interface EstudianteAlergiaRepository extends JpaRepository<EstudianteAle
     /** Retorna todas las alergias registradas para un estudiante. */
     List<EstudianteAlergia> findByIdEstudianteId(Long estudianteId);
 
-    /** Elimina todas las alergias de un estudiante (usado al reemplazar la lista). */
+    /**
+     * Elimina todas las alergias de un estudiante (usado al reemplazar la lista).
+     */
     void deleteByIdEstudianteId(Long estudianteId);
 }

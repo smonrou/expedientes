@@ -38,49 +38,120 @@ public class JustificacionDtos {
         private List<FechaInasistenciaResponse> fechas = new ArrayList<>();
         private List<DocumentoResponse> documentos = new ArrayList<>();
 
-        public JustificacionResponse() {}
+        public JustificacionResponse() {
+        }
 
-        public Long getId() { return id; }
-        public void setId(Long id) { this.id = id; }
+        public Long getId() {
+            return id;
+        }
 
-        public Long getEstudianteId() { return estudianteId; }
-        public void setEstudianteId(Long estudianteId) { this.estudianteId = estudianteId; }
+        public void setId(Long id) {
+            this.id = id;
+        }
 
-        public String getEstudianteNombre() { return estudianteNombre; }
-        public void setEstudianteNombre(String estudianteNombre) { this.estudianteNombre = estudianteNombre; }
+        public Long getEstudianteId() {
+            return estudianteId;
+        }
 
-        public String getEstudianteNumeroCarne() { return estudianteNumeroCarne; }
-        public void setEstudianteNumeroCarne(String estudianteNumeroCarne) { this.estudianteNumeroCarne = estudianteNumeroCarne; }
+        public void setEstudianteId(Long estudianteId) {
+            this.estudianteId = estudianteId;
+        }
 
-        public Long getMotivoId() { return motivoId; }
-        public void setMotivoId(Long motivoId) { this.motivoId = motivoId; }
+        public String getEstudianteNombre() {
+            return estudianteNombre;
+        }
 
-        public String getMotivoNombre() { return motivoNombre; }
-        public void setMotivoNombre(String motivoNombre) { this.motivoNombre = motivoNombre; }
+        public void setEstudianteNombre(String estudianteNombre) {
+            this.estudianteNombre = estudianteNombre;
+        }
 
-        public String getDescripcion() { return descripcion; }
-        public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+        public String getEstudianteNumeroCarne() {
+            return estudianteNumeroCarne;
+        }
 
-        public EstadoJustificacion getEstado() { return estado; }
-        public void setEstado(EstadoJustificacion estado) { this.estado = estado; }
+        public void setEstudianteNumeroCarne(String estudianteNumeroCarne) {
+            this.estudianteNumeroCarne = estudianteNumeroCarne;
+        }
 
-        public LocalDateTime getFechaPresentacion() { return fechaPresentacion; }
-        public void setFechaPresentacion(LocalDateTime fechaPresentacion) { this.fechaPresentacion = fechaPresentacion; }
+        public Long getMotivoId() {
+            return motivoId;
+        }
 
-        public LocalDateTime getFechaRevision() { return fechaRevision; }
-        public void setFechaRevision(LocalDateTime fechaRevision) { this.fechaRevision = fechaRevision; }
+        public void setMotivoId(Long motivoId) {
+            this.motivoId = motivoId;
+        }
 
-        public Long getRevisadoPorId() { return revisadoPorId; }
-        public void setRevisadoPorId(Long revisadoPorId) { this.revisadoPorId = revisadoPorId; }
+        public String getMotivoNombre() {
+            return motivoNombre;
+        }
 
-        public String getRevisadoPorNombre() { return revisadoPorNombre; }
-        public void setRevisadoPorNombre(String revisadoPorNombre) { this.revisadoPorNombre = revisadoPorNombre; }
+        public void setMotivoNombre(String motivoNombre) {
+            this.motivoNombre = motivoNombre;
+        }
 
-        public List<FechaInasistenciaResponse> getFechas() { return fechas; }
-        public void setFechas(List<FechaInasistenciaResponse> fechas) { this.fechas = fechas; }
+        public String getDescripcion() {
+            return descripcion;
+        }
 
-        public List<DocumentoResponse> getDocumentos() { return documentos; }
-        public void setDocumentos(List<DocumentoResponse> documentos) { this.documentos = documentos; }
+        public void setDescripcion(String descripcion) {
+            this.descripcion = descripcion;
+        }
+
+        public EstadoJustificacion getEstado() {
+            return estado;
+        }
+
+        public void setEstado(EstadoJustificacion estado) {
+            this.estado = estado;
+        }
+
+        public LocalDateTime getFechaPresentacion() {
+            return fechaPresentacion;
+        }
+
+        public void setFechaPresentacion(LocalDateTime fechaPresentacion) {
+            this.fechaPresentacion = fechaPresentacion;
+        }
+
+        public LocalDateTime getFechaRevision() {
+            return fechaRevision;
+        }
+
+        public void setFechaRevision(LocalDateTime fechaRevision) {
+            this.fechaRevision = fechaRevision;
+        }
+
+        public Long getRevisadoPorId() {
+            return revisadoPorId;
+        }
+
+        public void setRevisadoPorId(Long revisadoPorId) {
+            this.revisadoPorId = revisadoPorId;
+        }
+
+        public String getRevisadoPorNombre() {
+            return revisadoPorNombre;
+        }
+
+        public void setRevisadoPorNombre(String revisadoPorNombre) {
+            this.revisadoPorNombre = revisadoPorNombre;
+        }
+
+        public List<FechaInasistenciaResponse> getFechas() {
+            return fechas;
+        }
+
+        public void setFechas(List<FechaInasistenciaResponse> fechas) {
+            this.fechas = fechas;
+        }
+
+        public List<DocumentoResponse> getDocumentos() {
+            return documentos;
+        }
+
+        public void setDocumentos(List<DocumentoResponse> documentos) {
+            this.documentos = documentos;
+        }
     }
 
     // ─────────────────────────────────────────
@@ -101,31 +172,72 @@ public class JustificacionDtos {
         private LocalDateTime fechaPresentacion;
         private int totalFechas;
 
-        public JustificacionResumenResponse() {}
+        public JustificacionResumenResponse() {
+        }
 
-        public Long getId() { return id; }
-        public void setId(Long id) { this.id = id; }
+        public Long getId() {
+            return id;
+        }
 
-        public Long getEstudianteId() { return estudianteId; }
-        public void setEstudianteId(Long estudianteId) { this.estudianteId = estudianteId; }
+        public void setId(Long id) {
+            this.id = id;
+        }
 
-        public String getEstudianteNombre() { return estudianteNombre; }
-        public void setEstudianteNombre(String estudianteNombre) { this.estudianteNombre = estudianteNombre; }
+        public Long getEstudianteId() {
+            return estudianteId;
+        }
 
-        public String getEstudianteNumeroCarne() { return estudianteNumeroCarne; }
-        public void setEstudianteNumeroCarne(String estudianteNumeroCarne) { this.estudianteNumeroCarne = estudianteNumeroCarne; }
+        public void setEstudianteId(Long estudianteId) {
+            this.estudianteId = estudianteId;
+        }
 
-        public String getMotivoNombre() { return motivoNombre; }
-        public void setMotivoNombre(String motivoNombre) { this.motivoNombre = motivoNombre; }
+        public String getEstudianteNombre() {
+            return estudianteNombre;
+        }
 
-        public EstadoJustificacion getEstado() { return estado; }
-        public void setEstado(EstadoJustificacion estado) { this.estado = estado; }
+        public void setEstudianteNombre(String estudianteNombre) {
+            this.estudianteNombre = estudianteNombre;
+        }
 
-        public LocalDateTime getFechaPresentacion() { return fechaPresentacion; }
-        public void setFechaPresentacion(LocalDateTime fechaPresentacion) { this.fechaPresentacion = fechaPresentacion; }
+        public String getEstudianteNumeroCarne() {
+            return estudianteNumeroCarne;
+        }
 
-        public int getTotalFechas() { return totalFechas; }
-        public void setTotalFechas(int totalFechas) { this.totalFechas = totalFechas; }
+        public void setEstudianteNumeroCarne(String estudianteNumeroCarne) {
+            this.estudianteNumeroCarne = estudianteNumeroCarne;
+        }
+
+        public String getMotivoNombre() {
+            return motivoNombre;
+        }
+
+        public void setMotivoNombre(String motivoNombre) {
+            this.motivoNombre = motivoNombre;
+        }
+
+        public EstadoJustificacion getEstado() {
+            return estado;
+        }
+
+        public void setEstado(EstadoJustificacion estado) {
+            this.estado = estado;
+        }
+
+        public LocalDateTime getFechaPresentacion() {
+            return fechaPresentacion;
+        }
+
+        public void setFechaPresentacion(LocalDateTime fechaPresentacion) {
+            this.fechaPresentacion = fechaPresentacion;
+        }
+
+        public int getTotalFechas() {
+            return totalFechas;
+        }
+
+        public void setTotalFechas(int totalFechas) {
+            this.totalFechas = totalFechas;
+        }
     }
 
     // ─────────────────────────────────────────
@@ -137,13 +249,24 @@ public class JustificacionDtos {
         private Long id;
         private LocalDate fecha;
 
-        public FechaInasistenciaResponse() {}
+        public FechaInasistenciaResponse() {
+        }
 
-        public Long getId() { return id; }
-        public void setId(Long id) { this.id = id; }
+        public Long getId() {
+            return id;
+        }
 
-        public LocalDate getFecha() { return fecha; }
-        public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public LocalDate getFecha() {
+            return fecha;
+        }
+
+        public void setFecha(LocalDate fecha) {
+            this.fecha = fecha;
+        }
     }
 
     // ─────────────────────────────────────────
@@ -160,18 +283,39 @@ public class JustificacionDtos {
         private String tipoMime;
         private LocalDateTime subidoEn;
 
-        public DocumentoResponse() {}
+        public DocumentoResponse() {
+        }
 
-        public Long getId() { return id; }
-        public void setId(Long id) { this.id = id; }
+        public Long getId() {
+            return id;
+        }
 
-        public String getNombreOriginal() { return nombreOriginal; }
-        public void setNombreOriginal(String nombreOriginal) { this.nombreOriginal = nombreOriginal; }
+        public void setId(Long id) {
+            this.id = id;
+        }
 
-        public String getTipoMime() { return tipoMime; }
-        public void setTipoMime(String tipoMime) { this.tipoMime = tipoMime; }
+        public String getNombreOriginal() {
+            return nombreOriginal;
+        }
 
-        public LocalDateTime getSubidoEn() { return subidoEn; }
-        public void setSubidoEn(LocalDateTime subidoEn) { this.subidoEn = subidoEn; }
+        public void setNombreOriginal(String nombreOriginal) {
+            this.nombreOriginal = nombreOriginal;
+        }
+
+        public String getTipoMime() {
+            return tipoMime;
+        }
+
+        public void setTipoMime(String tipoMime) {
+            this.tipoMime = tipoMime;
+        }
+
+        public LocalDateTime getSubidoEn() {
+            return subidoEn;
+        }
+
+        public void setSubidoEn(LocalDateTime subidoEn) {
+            this.subidoEn = subidoEn;
+        }
     }
 }

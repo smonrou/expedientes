@@ -2,7 +2,8 @@ package gt.edu.cunori.expedientes.api.dto.estudiante;
 
 /**
  * DTO de respuesta resumido para listados y búsquedas de estudiantes.
- * No incluye sub-entidades para mantener respuestas ligeras en consultas masivas.
+ * No incluye sub-entidades para mantener respuestas ligeras en consultas
+ * masivas.
  */
 public class EstudianteResumenResponse {
 
@@ -15,29 +16,70 @@ public class EstudianteResumenResponse {
     private Boolean inscrito;
     private Integer anioIngreso;
 
-    public EstudianteResumenResponse() {}
+    public EstudianteResumenResponse() {
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getNumeroCarne() { return numeroCarne; }
-    public void setNumeroCarne(String numeroCarne) { this.numeroCarne = numeroCarne; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getNombres() { return nombres; }
-    public void setNombres(String nombres) { this.nombres = nombres; }
+    public String getNumeroCarne() {
+        return numeroCarne;
+    }
 
-    public String getApellidos() { return apellidos; }
-    public void setApellidos(String apellidos) { this.apellidos = apellidos; }
+    public void setNumeroCarne(String numeroCarne) {
+        this.numeroCarne = numeroCarne;
+    }
 
-    public String getCorreoInstitucional() { return correoInstitucional; }
-    public void setCorreoInstitucional(String correoInstitucional) { this.correoInstitucional = correoInstitucional; }
+    public String getNombres() {
+        return nombres;
+    }
 
-    public String getCarreraNombre() { return carreraNombre; }
-    public void setCarreraNombre(String carreraNombre) { this.carreraNombre = carreraNombre; }
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
 
-    public Boolean getInscrito() { return inscrito; }
-    public void setInscrito(Boolean inscrito) { this.inscrito = inscrito; }
+    public String getApellidos() {
+        return apellidos;
+    }
 
-    public Integer getAnioIngreso() { return anioIngreso; }
-    public void setAnioIngreso(Integer anioIngreso) { this.anioIngreso = anioIngreso; }
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getCorreoInstitucional() {
+        return correoInstitucional;
+    }
+
+    public void setCorreoInstitucional(String correoInstitucional) {
+        this.correoInstitucional = correoInstitucional;
+    }
+
+    public String getCarreraNombre() {
+        return carreraNombre;
+    }
+
+    public void setCarreraNombre(String carreraNombre) {
+        this.carreraNombre = carreraNombre;
+    }
+
+    public Boolean getInscrito() {
+        return inscrito;
+    }
+
+    public void setInscrito(Boolean inscrito) {
+        this.inscrito = inscrito;
+    }
+
+    public Integer getAnioIngreso() {
+        return anioIngreso;
+    }
+
+    public void setAnioIngreso(Integer anioIngreso) {
+        this.anioIngreso = anioIngreso;
+    }
 }

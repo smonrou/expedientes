@@ -10,7 +10,8 @@ public class CarreraResponse {
     private String codigo;
     private String nombreCoordinador;
 
-    public CarreraResponse() {}
+    public CarreraResponse() {
+    }
 
     public CarreraResponse(Integer id, String nombre, String codigo, String nombreCoordinador) {
         this.id = id;
@@ -19,15 +20,35 @@ public class CarreraResponse {
         this.nombreCoordinador = nombreCoordinador;
     }
 
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    public Integer getId() {
+        return id;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public String getNombreCoordinador() { return nombreCoordinador; }
-    public void setNombreCoordinador(String nombreCoordinador) { this.nombreCoordinador = nombreCoordinador; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombreCoordinador() {
+        return nombreCoordinador;
+    }
+
+    public void setNombreCoordinador(String nombreCoordinador) {
+        this.nombreCoordinador = nombreCoordinador;
+    }
 }

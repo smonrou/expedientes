@@ -12,23 +12,26 @@ import java.util.List;
 
 /**
  * Repositorio para las notificaciones internas del sistema.
- * Las notificaciones se generan automáticamente al presentar o cambiar el estado
+ * Las notificaciones se generan automáticamente al presentar o cambiar el
+ * estado
  * de una justificación de inasistencia.
  */
 @Repository
 public interface NotificacionRepository extends JpaRepository<Notificacion, Long> {
 
     /**
-     * Retorna todas las notificaciones de un usuario ordenadas por fecha descendente.
+     * Retorna todas las notificaciones de un usuario ordenadas por fecha
+     * descendente.
      * Las no leídas aparecen primero gracias al orden secundario.
      */
-     List<Notificacion> findByUsuarioDestinatarioIdOrderByLeidaAscCreadaEnDesc(Long destinatarioId);
-
+    List<Notificacion> findByUsuarioDestinatarioIdOrderByLeidaAscCreadaEnDesc(Long destinatarioId);
 
     /** Retorna solo las notificaciones no leídas de un usuario. */
     List<Notificacion> findByUsuarioDestinatario_IdAndLeidaFalse(Long destinatarioId);
 
-    /** Cuenta las notificaciones no leídas de un usuario (para el badge en la UI). */
+    /**
+     * Cuenta las notificaciones no leídas de un usuario (para el badge en la UI).
+     */
     long countByUsuarioDestinatarioIdAndLeidaFalse(Long destinatarioId);
 
     /**

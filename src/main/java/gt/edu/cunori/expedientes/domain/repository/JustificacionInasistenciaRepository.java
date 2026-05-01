@@ -16,33 +16,34 @@ import java.util.List;
 @Repository
 public interface JustificacionInasistenciaRepository extends JpaRepository<JustificacionInasistencia, Long> {
 
-    /** Retorna todas las justificaciones presentadas por un estudiante. */
-    List<JustificacionInasistencia> findByEstudianteId(Long estudianteId);
+        /** Retorna todas las justificaciones presentadas por un estudiante. */
+        List<JustificacionInasistencia> findByEstudianteId(Long estudianteId);
 
-    /** Retorna las justificaciones de un estudiante filtradas por estado. */
-    List<JustificacionInasistencia> findByEstudianteIdAndEstado(Long estudianteId, EstadoJustificacion estado);
+        /** Retorna las justificaciones de un estudiante filtradas por estado. */
+        List<JustificacionInasistencia> findByEstudianteIdAndEstado(Long estudianteId, EstadoJustificacion estado);
 
-    /**
-     * Retorna todas las justificaciones de los estudiantes de una carrera específica.
-     * Usado por coordinadores para ver las justificaciones de su carrera.
-     */
-    @Query("""
-            SELECT j FROM JustificacionInasistencia j
-            WHERE j.estudiante.carrera.id = :carreraId
-            ORDER BY j.fechaPresentacion DESC
-            """)
-    List<JustificacionInasistencia> findByCarreraId(@Param("carreraId") Long carreraId);
+        /**
+         * Retorna todas las justificaciones de los estudiantes de una carrera
+         * específica.
+         * Usado por coordinadores para ver las justificaciones de su carrera.
+         */
+        @Query("""
+                        SELECT j FROM JustificacionInasistencia j
+                        WHERE j.estudiante.carrera.id = :carreraId
+                        ORDER BY j.fechaPresentacion DESC
+                        """)
+        List<JustificacionInasistencia> findByCarreraId(@Param("carreraId") Long carreraId);
 
-    /**
-     * Retorna las justificaciones de una carrera filtradas por estado.
-     * Usado por coordinadores para gestionar el flujo de revisión.
-     */
-    @Query("""
-            SELECT j FROM JustificacionInasistencia j
-            WHERE j.estudiante.carrera.id = :carreraId
-              AND j.estado = :estado
-            ORDER BY j.fechaPresentacion DESC
-            """)
-    List<JustificacionInasistencia> findByCarreraIdAndEstado(@Param("carreraId") Long carreraId,
-                                                              @Param("estado") EstadoJustificacion estado);
+        /**
+         * Retorna las justificaciones de una carrera filtradas por estado.
+         * Usado por coordinadores para gestionar el flujo de revisión.
+         */
+        @Query("""
+                        SELECT j FROM JustificacionInasistencia j
+                        WHERE j.estudiante.carrera.id = :carreraId
+                          AND j.estado = :estado
+                        ORDER BY j.fechaPresentacion DESC
+                        """)
+        List<JustificacionInasistencia> findByCarreraIdAndEstado(@Param("carreraId") Long carreraId,
+                        @Param("estado") EstadoJustificacion estado);
 }

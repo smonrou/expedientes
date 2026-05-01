@@ -17,7 +17,8 @@ import java.util.List;
 
 /**
  * Servicio para la gestión de usuarios del sistema.
- * Permite listar, crear, actualizar, cambiar contraseña y activar/desactivar usuarios.
+ * Permite listar, crear, actualizar, cambiar contraseña y activar/desactivar
+ * usuarios.
  */
 @Service
 public class UsuarioService {
@@ -95,7 +96,8 @@ public class UsuarioService {
      * @param request nuevos datos del usuario
      * @return el usuario actualizado como DTO de respuesta
      * @throws ResourceNotFoundException si no existe un usuario con ese id
-     * @throws BusinessException         si el nuevo correo o nombre de usuario ya están en uso
+     * @throws BusinessException         si el nuevo correo o nombre de usuario ya
+     *                                   están en uso
      */
     @Transactional
     public UsuarioResponse actualizar(Long id, UsuarioUpdateRequest request) {
@@ -105,7 +107,8 @@ public class UsuarioService {
         if (!entidad.getCorreo().equals(request.getCorreo()) && repository.existsByCorreo(request.getCorreo())) {
             throw new BusinessException("Ya existe un usuario con el correo: " + request.getCorreo());
         }
-        if (!entidad.getNombreUsuario().equals(request.getNombreUsuario()) && repository.existsByNombreUsuario(request.getNombreUsuario())) {
+        if (!entidad.getNombreUsuario().equals(request.getNombreUsuario())
+                && repository.existsByNombreUsuario(request.getNombreUsuario())) {
             throw new BusinessException("Ya existe un usuario con el nombre de usuario: " + request.getNombreUsuario());
         }
 

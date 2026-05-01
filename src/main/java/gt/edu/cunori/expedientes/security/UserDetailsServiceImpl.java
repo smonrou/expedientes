@@ -13,11 +13,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Implementación de {@link UserDetailsService} que carga el usuario desde la base de datos
- * usando el correo electrónico como identificador (username en términos de Spring Security).
+ * Implementación de {@link UserDetailsService} que carga el usuario desde la
+ * base de datos
+ * usando el correo electrónico como identificador (username en términos de
+ * Spring Security).
  *
- * <p>Spring Security llama a este servicio durante la autenticación para obtener
- * los detalles del usuario y verificar credenciales.</p>
+ * <p>
+ * Spring Security llama a este servicio durante la autenticación para obtener
+ * los detalles del usuario y verificar credenciales.
+ * </p>
  */
 @Service
 @RequiredArgsConstructor
@@ -31,7 +35,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      *
      * @param correo correo electrónico del usuario (usado como username)
      * @return objeto {@link UserDetails} con credenciales y autoridades
-     * @throws UsernameNotFoundException si el correo no existe o el usuario está inactivo
+     * @throws UsernameNotFoundException si el correo no existe o el usuario está
+     *                                   inactivo
      */
     @Override
     public UserDetails loadUserByUsername(String correo) throws UsernameNotFoundException {
@@ -51,7 +56,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new User(
                 usuario.getCorreo(),
                 usuario.getContrasenaHash(),
-                List.of(new SimpleGrantedAuthority(autoridad))
-        );
+                List.of(new SimpleGrantedAuthority(autoridad)));
     }
 }

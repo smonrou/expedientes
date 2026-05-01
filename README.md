@@ -2,6 +2,8 @@
 
 ``` markdown
 expedientes
+├─ .dockerfile
+├─ .dockerignore
 ├─ .mvn
 │  └─ wrapper
 │     └─ maven-wrapper.properties

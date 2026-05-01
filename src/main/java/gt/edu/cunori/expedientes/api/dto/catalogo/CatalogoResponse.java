@@ -2,14 +2,16 @@ package gt.edu.cunori.expedientes.api.dto.catalogo;
 
 /**
  * DTO de respuesta genérico para catálogos simples (id + nombre).
- * Usado por: TipoSangre, Alergia, TipoDiscapacidad, TipoActividad, MotivoInasistencia.
+ * Usado por: TipoSangre, Alergia, TipoDiscapacidad, TipoActividad,
+ * MotivoInasistencia.
  */
 public class CatalogoResponse {
 
     private Integer id;
     private String nombre;
 
-    public CatalogoResponse() {}
+    public CatalogoResponse() {
+    }
 
     public CatalogoResponse(Integer id, String nombre) {
         this.id = id;

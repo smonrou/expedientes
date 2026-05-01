@@ -25,7 +25,8 @@ public class JwtUtil {
      * Constructor que inicializa la clave de firma y el tiempo de expiración
      * a partir de los valores definidos en application.properties.
      *
-     * @param secret       clave secreta en texto plano (mínimo 256 bits recomendado)
+     * @param secret       clave secreta en texto plano (mínimo 256 bits
+     *                     recomendado)
      * @param expiracionMs tiempo de vida del token en milisegundos
      */
     public JwtUtil(

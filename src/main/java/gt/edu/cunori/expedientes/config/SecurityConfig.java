@@ -28,18 +28,19 @@ import java.util.List;
 /**
  * Configuración principal de Spring Security.
  *
- * <p>Define:
+ * <p>
+ * Define:
  * <ul>
- *   <li>Política de sesiones: STATELESS (sin sesión HTTP, solo JWT).</li>
- *   <li>Rutas públicas y protegidas por rol.</li>
- *   <li>CORS para permitir peticiones desde el frontend React.</li>
- *   <li>Proveedor de autenticación con BCrypt.</li>
+ * <li>Política de sesiones: STATELESS (sin sesión HTTP, solo JWT).</li>
+ * <li>Rutas públicas y protegidas por rol.</li>
+ * <li>CORS para permitir peticiones desde el frontend React.</li>
+ * <li>Proveedor de autenticación con BCrypt.</li>
  * </ul>
  * </p>
  */
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity          // Habilita @PreAuthorize en controllers y servicios
+@EnableMethodSecurity // Habilita @PreAuthorize en controllers y servicios
 @RequiredArgsConstructor
 public class SecurityConfig {
 
@@ -48,7 +49,8 @@ public class SecurityConfig {
 
     /**
      * Configura la cadena de filtros de seguridad HTTP.
-     * Define qué rutas son públicas y cuáles requieren autenticación o rol específico.
+     * Define qué rutas son públicas y cuáles requieren autenticación o rol
+     * específico.
      *
      * @param http objeto de configuración de Spring Security
      * @return cadena de filtros configurada
@@ -56,65 +58,67 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // Deshabilitar CSRF — no aplica para API REST stateless con JWT
-            .csrf(AbstractHttpConfigurer::disable)
+                // Deshabilitar CSRF — no aplica para API REST stateless con JWT
+                .csrf(AbstractHttpConfigurer::disable)
 
-            // Configurar CORS con el bean definido más abajo
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                // Configurar CORS con el bean definido más abajo
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
-            // Política de sesiones: completamente stateless
-            .sessionManagement(session ->
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                // Política de sesiones: completamente stateless
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-            // Reglas de autorización por ruta y rol
-            .authorizeHttpRequests(auth -> auth
+                // Reglas de autorización por ruta y rol
+                .authorizeHttpRequests(auth -> auth
 
-                // ── Rutas públicas ──────────────────────────────────────────
-                .requestMatchers("/api/auth/**").permitAll()
+                        // ── Rutas públicas ──────────────────────────────────────────
+                        .requestMatchers("/api/auth/**").permitAll()
 
-                // ── Catálogos: lectura pública, escritura solo ADMIN ────────
-                .requestMatchers(HttpMethod.GET,
-                        "/api/catalogos/**",
-                        "/api/carreras/**").hasAnyRole("ADMIN", "COORDINADOR", "ESTUDIANTE")
-                .requestMatchers(HttpMethod.POST,
-                        "/api/catalogos/**",
-                        "/api/carreras/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT,
-                        "/api/catalogos/**",
-                        "/api/carreras/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE,
-                        "/api/catalogos/**",
-                        "/api/carreras/**").hasRole("ADMIN")
+                        // ── Catálogos: lectura pública, escritura solo ADMIN ────────
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/catalogos/**",
+                                "/api/carreras/**")
+                        .hasAnyRole("ADMIN", "COORDINADOR", "ESTUDIANTE")
+                        .requestMatchers(HttpMethod.POST,
+                                "/api/catalogos/**",
+                                "/api/carreras/**")
+                        .hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,
+                                "/api/catalogos/**",
+                                "/api/carreras/**")
+                        .hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,
+                                "/api/catalogos/**",
+                                "/api/carreras/**")
+                        .hasRole("ADMIN")
 
-                // ── Usuarios: solo ADMIN ────────────────────────────────────
-                .requestMatchers("/api/usuarios/**").hasRole("ADMIN")
+                        // ── Usuarios: solo ADMIN ────────────────────────────────────
+                        .requestMatchers("/api/usuarios/**").hasRole("ADMIN")
 
-                // ── Estudiantes: ADMIN y COORDINADOR ven todos,
-                //    ESTUDIANTE solo accede a su propio expediente (validado en el servicio)
-                .requestMatchers("/api/estudiantes/**")
+                        // ── Estudiantes: ADMIN y COORDINADOR ven todos,
+                        // ESTUDIANTE solo accede a su propio expediente (validado en el servicio)
+                        .requestMatchers("/api/estudiantes/**")
                         .hasAnyRole("ADMIN", "COORDINADOR", "ESTUDIANTE")
 
-                // ── Justificaciones: todos los roles autenticados ───────────
-                .requestMatchers("/api/justificaciones/**")
+                        // ── Justificaciones: todos los roles autenticados ───────────
+                        .requestMatchers("/api/justificaciones/**")
                         .hasAnyRole("ADMIN", "COORDINADOR", "ESTUDIANTE")
 
-                // ── Notificaciones: todos los roles autenticados ────────────
-                .requestMatchers("/api/notificaciones/**")
+                        // ── Notificaciones: todos los roles autenticados ────────────
+                        .requestMatchers("/api/notificaciones/**")
                         .hasAnyRole("ADMIN", "COORDINADOR", "ESTUDIANTE")
 
-                // ── Cualquier otra ruta requiere autenticación ───────────────
-                .anyRequest().authenticated()
-            )
+                        // ── Cualquier otra ruta requiere autenticación ───────────────
+                        .anyRequest().authenticated())
 
-            // Registrar el filtro JWT antes del filtro estándar de autenticación
-            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                // Registrar el filtro JWT antes del filtro estándar de autenticación
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
     /**
-     * Configura CORS para permitir peticiones desde el frontend React (Vite en puerto 5173).
-     * En producción se debe cambiar el origen permitido a la URL del frontend desplegado.
+     * Configura CORS para permitir peticiones desde el frontend React (Vite en
+     * puerto 5173).
      *
      * @return fuente de configuración CORS
      */
@@ -124,10 +128,9 @@ public class SecurityConfig {
 
         // Orígenes permitidos: desarrollo local y producción
         config.setAllowedOrigins(List.of(
-                "http://localhost:5173",   // Vite dev server
+                "http://localhost:5173",
                 "http://localhost:3000",
-                "https://expedientes-frontend-gamma.vercel.app"    
-        ));
+                "https://expedientes-frontend-gamma.vercel.app"));
 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept"));
@@ -140,7 +143,8 @@ public class SecurityConfig {
     }
 
     /**
-     * Proveedor de autenticación que usa la base de datos y BCrypt para verificar contraseñas.
+     * Proveedor de autenticación que usa la base de datos y BCrypt para verificar
+     * contraseñas.
      *
      * @return proveedor de autenticación configurado
      */

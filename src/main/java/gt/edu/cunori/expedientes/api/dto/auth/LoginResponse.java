@@ -31,7 +31,7 @@ public class LoginResponse {
     // ── Constructor ──────────────────────────────────────────────────────────
 
     public LoginResponse(String token, String correo, String nombreUsuario,
-                         String rol, Integer usuarioId) {
+            String rol, Integer usuarioId) {
         this.token = token;
         this.correo = correo;
         this.nombreUsuario = nombreUsuario;
@@ -41,10 +41,27 @@ public class LoginResponse {
 
     // ── Getters ──────────────────────────────────────────────────────────────
 
-    public String getToken() { return token; }
-    public String getTipo() { return tipo; }
-    public String getCorreo() { return correo; }
-    public String getNombreUsuario() { return nombreUsuario; }
-    public String getRol() { return rol; }
-    public Integer getUsuarioId() { return usuarioId; }
+    public String getToken() {
+        return token;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public Integer getUsuarioId() {
+        return usuarioId;
+    }
 }

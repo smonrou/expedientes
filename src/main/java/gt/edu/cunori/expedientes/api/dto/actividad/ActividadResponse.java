@@ -17,32 +17,78 @@ public class ActividadResponse {
     private LocalDate fechaFin;
     private String observaciones;
 
-    public ActividadResponse() {}
+    public ActividadResponse() {
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public Long getEstudianteId() { return estudianteId; }
-    public void setEstudianteId(Long estudianteId) { this.estudianteId = estudianteId; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Long getTipoActividadId() { return tipoActividadId; }
-    public void setTipoActividadId(Long tipoActividadId) { this.tipoActividadId = tipoActividadId; }
+    public Long getEstudianteId() {
+        return estudianteId;
+    }
 
-    public String getTipoActividadNombre() { return tipoActividadNombre; }
-    public void setTipoActividadNombre(String tipoActividadNombre) { this.tipoActividadNombre = tipoActividadNombre; }
+    public void setEstudianteId(Long estudianteId) {
+        this.estudianteId = estudianteId;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public Long getTipoActividadId() {
+        return tipoActividadId;
+    }
 
-    public String getInstitucion() { return institucion; }
-    public void setInstitucion(String institucion) { this.institucion = institucion; }
+    public void setTipoActividadId(Long tipoActividadId) {
+        this.tipoActividadId = tipoActividadId;
+    }
 
-    public LocalDate getFechaInicio() { return fechaInicio; }
-    public void setFechaInicio(LocalDate fechaInicio) { this.fechaInicio = fechaInicio; }
+    public String getTipoActividadNombre() {
+        return tipoActividadNombre;
+    }
 
-    public LocalDate getFechaFin() { return fechaFin; }
-    public void setFechaFin(LocalDate fechaFin) { this.fechaFin = fechaFin; }
+    public void setTipoActividadNombre(String tipoActividadNombre) {
+        this.tipoActividadNombre = tipoActividadNombre;
+    }
 
-    public String getObservaciones() { return observaciones; }
-    public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getInstitucion() {
+        return institucion;
+    }
+
+    public void setInstitucion(String institucion) {
+        this.institucion = institucion;
+    }
+
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
 }

@@ -10,7 +10,10 @@ import java.util.List;
  * Todos los endpoints retornan este objeto cuando ocurre un error,
  * garantizando un formato consistente para el frontend.
  *
- * <p>Ejemplo de respuesta:</p>
+ * <p>
+ * Ejemplo de respuesta:
+ * </p>
+ * 
  * <pre>
  * {
  *   "timestamp": "2025-05-01T10:30:00",
@@ -78,27 +81,62 @@ public class ApiError {
             this.mensaje = mensaje;
         }
 
-        public String getCampo() { return campo; }
-        public String getMensaje() { return mensaje; }
+        public String getCampo() {
+            return campo;
+        }
+
+        public String getMensaje() {
+            return mensaje;
+        }
     }
 
     // ── Getters y Setters ────────────────────────────────────────────────────
 
-    public LocalDateTime getTimestamp() { return timestamp; }
-    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
 
-    public int getStatus() { return status; }
-    public void setStatus(int status) { this.status = status; }
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 
-    public String getError() { return error; }
-    public void setError(String error) { this.error = error; }
+    public int getStatus() {
+        return status;
+    }
 
-    public String getMensaje() { return mensaje; }
-    public void setMensaje(String mensaje) { this.mensaje = mensaje; }
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
-    public String getRuta() { return ruta; }
-    public void setRuta(String ruta) { this.ruta = ruta; }
+    public String getError() {
+        return error;
+    }
 
-    public List<CampoError> getErroresCampos() { return erroresCampos; }
-    public void setErroresCampos(List<CampoError> erroresCampos) { this.erroresCampos = erroresCampos; }
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+    public List<CampoError> getErroresCampos() {
+        return erroresCampos;
+    }
+
+    public void setErroresCampos(List<CampoError> erroresCampos) {
+        this.erroresCampos = erroresCampos;
+    }
 }

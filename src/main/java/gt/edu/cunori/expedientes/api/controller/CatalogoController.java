@@ -149,7 +149,7 @@ public class CatalogoController {
     /** Elimina un tipo de discapacidad. Solo ADMIN. */
     @DeleteMapping("/tipo-discapacidad/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Void> eliminarTipoDiscapacidad(@PathVariable Long  id) {
+    public ResponseEntity<Void> eliminarTipoDiscapacidad(@PathVariable Long id) {
         tipoDiscapacidadService.eliminar(id);
         return ResponseEntity.noContent().build();
     }

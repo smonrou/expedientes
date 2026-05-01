@@ -9,7 +9,8 @@ import gt.edu.cunori.expedientes.domain.entity.TipoSangre;
 import org.mapstruct.Mapper;
 
 /**
- * Mapper MapStruct para convertir entidades de catálogos simples a DTOs de respuesta.
+ * Mapper MapStruct para convertir entidades de catálogos simples a DTOs de
+ * respuesta.
  * Los catálogos simples comparten la misma estructura: id + nombre.
  */
 @Mapper(componentModel = "spring")

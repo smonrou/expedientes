@@ -12,11 +12,15 @@ import java.util.List;
  * Usa clave compuesta {@link EstudianteDiscapacidadId}.
  */
 @Repository
-public interface EstudianteDiscapacidadRepository extends JpaRepository<EstudianteDiscapacidad, EstudianteDiscapacidadId> {
+public interface EstudianteDiscapacidadRepository
+        extends JpaRepository<EstudianteDiscapacidad, EstudianteDiscapacidadId> {
 
     /** Retorna todas las discapacidades registradas para un estudiante. */
     List<EstudianteDiscapacidad> findByIdEstudianteId(Long estudianteId);
 
-    /** Elimina todas las discapacidades de un estudiante (usado al reemplazar la lista). */
+    /**
+     * Elimina todas las discapacidades de un estudiante (usado al reemplazar la
+     * lista).
+     */
     void deleteByIdEstudianteId(Long estudianteId);
 }

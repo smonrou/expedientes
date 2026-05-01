@@ -64,8 +64,10 @@ public class AlergiaService {
      * @param id      identificador de la alergia a actualizar
      * @param request nuevos datos
      * @return la alergia actualizada como DTO de respuesta
-     * @throws ResourceNotFoundException si no se encuentra el registro con el id dado
-     * @throws BusinessException         si el nuevo nombre ya está en uso por otro registro
+     * @throws ResourceNotFoundException si no se encuentra el registro con el id
+     *                                   dado
+     * @throws BusinessException         si el nuevo nombre ya está en uso por otro
+     *                                   registro
      */
     @Transactional
     public CatalogoResponse actualizar(Long id, CatalogoRequest request) {
@@ -83,7 +85,8 @@ public class AlergiaService {
      * Elimina una alergia por su identificador.
      *
      * @param id identificador de la alergia a eliminar
-     * @throws ResourceNotFoundException si no se encuentra el registro con el id dado
+     * @throws ResourceNotFoundException si no se encuentra el registro con el id
+     *                                   dado
      */
     @Transactional
     public void eliminar(Long id) {

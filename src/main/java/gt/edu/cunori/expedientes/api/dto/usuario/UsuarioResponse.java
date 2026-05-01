@@ -17,23 +17,54 @@ public class UsuarioResponse {
     private Boolean activo;
     private LocalDateTime creadoEn;
 
-    public UsuarioResponse() {}
+    public UsuarioResponse() {
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getNombreUsuario() { return nombreUsuario; }
-    public void setNombreUsuario(String nombreUsuario) { this.nombreUsuario = nombreUsuario; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getCorreo() { return correo; }
-    public void setCorreo(String correo) { this.correo = correo; }
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
 
-    public Rol getRol() { return rol; }
-    public void setRol(Rol rol) { this.rol = rol; }
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
 
-    public Boolean getActivo() { return activo; }
-    public void setActivo(Boolean activo) { this.activo = activo; }
+    public String getCorreo() {
+        return correo;
+    }
 
-    public LocalDateTime getCreadoEn() { return creadoEn; }
-    public void setCreadoEn(LocalDateTime creadoEn) { this.creadoEn = creadoEn; }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
+    public LocalDateTime getCreadoEn() {
+        return creadoEn;
+    }
+
+    public void setCreadoEn(LocalDateTime creadoEn) {
+        this.creadoEn = creadoEn;
+    }
 }

@@ -28,23 +28,54 @@ public class ActividadRequest {
 
     private String observaciones;
 
-    public ActividadRequest() {}
+    public ActividadRequest() {
+    }
 
-    public Long getTipoActividadId() { return tipoActividadId; }
-    public void setTipoActividadId(Long tipoActividadId) { this.tipoActividadId = tipoActividadId; }
+    public Long getTipoActividadId() {
+        return tipoActividadId;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setTipoActividadId(Long tipoActividadId) {
+        this.tipoActividadId = tipoActividadId;
+    }
 
-    public String getInstitucion() { return institucion; }
-    public void setInstitucion(String institucion) { this.institucion = institucion; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public LocalDate getFechaInicio() { return fechaInicio; }
-    public void setFechaInicio(LocalDate fechaInicio) { this.fechaInicio = fechaInicio; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    public LocalDate getFechaFin() { return fechaFin; }
-    public void setFechaFin(LocalDate fechaFin) { this.fechaFin = fechaFin; }
+    public String getInstitucion() {
+        return institucion;
+    }
 
-    public String getObservaciones() { return observaciones; }
-    public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+    public void setInstitucion(String institucion) {
+        this.institucion = institucion;
+    }
+
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
 }

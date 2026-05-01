@@ -27,7 +27,8 @@ public class NotificacionService {
     }
 
     /**
-     * Retorna todas las notificaciones de un usuario ordenadas por fecha descendente.
+     * Retorna todas las notificaciones de un usuario ordenadas por fecha
+     * descendente.
      * Las no leídas aparecen primero.
      *
      * @param destinatarioId identificador del usuario destinatario

@@ -9,7 +9,8 @@ import java.util.List;
 
 /**
  * Repositorio para las fechas cubiertas por una justificación de inasistencia.
- * La tabla tiene constraint UNIQUE (justificacion_id, fecha) para evitar duplicados.
+ * La tabla tiene constraint UNIQUE (justificacion_id, fecha) para evitar
+ * duplicados.
  */
 @Repository
 public interface FechaInasistenciaRepository extends JpaRepository<FechaInasistencia, Long> {
@@ -18,7 +19,8 @@ public interface FechaInasistenciaRepository extends JpaRepository<FechaInasiste
     List<FechaInasistencia> findByJustificacionId(Long justificacionId);
 
     /**
-     * Verifica si una fecha específica ya está registrada dentro de una justificación.
+     * Verifica si una fecha específica ya está registrada dentro de una
+     * justificación.
      * Útil para validar antes de insertar y dar un mensaje claro al usuario.
      */
     boolean existsByJustificacionIdAndFecha(Long justificacionId, LocalDate fecha);
@@ -29,6 +31,9 @@ public interface FechaInasistenciaRepository extends JpaRepository<FechaInasiste
     /** Elimina una fecha específica de una justificación. */
     void deleteByJustificacionIdAndFecha(Long justificacionId, LocalDate fecha);
 
-/** Verifica si una fecha específica ya está registrada para un estudiante (en cualquier justificación). */
+    /**
+     * Verifica si una fecha específica ya está registrada para un estudiante (en
+     * cualquier justificación).
+     */
     boolean existsByJustificacionEstudianteIdAndFecha(Long estudianteId, LocalDate fecha);
 }

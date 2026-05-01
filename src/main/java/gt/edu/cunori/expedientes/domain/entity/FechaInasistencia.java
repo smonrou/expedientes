@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "fecha_inasistencia",
-       uniqueConstraints = @UniqueConstraint(columnNames = {"justificacion_id", "fecha"}))
+@Table(name = "fecha_inasistencia", uniqueConstraints = @UniqueConstraint(columnNames = { "justificacion_id",
+        "fecha" }))
 public class FechaInasistencia {
 
     @Id

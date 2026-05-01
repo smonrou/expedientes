@@ -45,7 +45,8 @@ public class CarreraService {
      *
      * @param id identificador de la carrera
      * @return la carrera como DTO de respuesta
-     * @throws ResourceNotFoundException si no se encuentra una carrera con el id dado
+     * @throws ResourceNotFoundException si no se encuentra una carrera con el id
+     *                                   dado
      */
     @Transactional(readOnly = true)
     public CarreraResponse buscarPorId(Long id) {
@@ -80,8 +81,10 @@ public class CarreraService {
      * @param id      identificador de la carrera a actualizar
      * @param request nuevos datos
      * @return la carrera actualizada como DTO de respuesta
-     * @throws ResourceNotFoundException si no se encuentra la carrera con el id dado
-     * @throws BusinessException         si el nuevo nombre ya está en uso por otra carrera
+     * @throws ResourceNotFoundException si no se encuentra la carrera con el id
+     *                                   dado
+     * @throws BusinessException         si el nuevo nombre ya está en uso por otra
+     *                                   carrera
      */
     @Transactional
     public CarreraResponse actualizar(Long id, CarreraRequest request) {
@@ -101,7 +104,8 @@ public class CarreraService {
      * Elimina una carrera por su identificador.
      *
      * @param id identificador de la carrera a eliminar
-     * @throws ResourceNotFoundException si no se encuentra la carrera con el id dado
+     * @throws ResourceNotFoundException si no se encuentra la carrera con el id
+     *                                   dado
      */
     @Transactional
     public void eliminar(Long id) {

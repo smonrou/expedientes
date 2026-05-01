@@ -21,7 +21,8 @@ public class CarreraRequest {
     @Size(max = 150, message = "El nombre del coordinador no puede superar los 150 caracteres")
     private String nombreCoordinador;
 
-    public CarreraRequest() {}
+    public CarreraRequest() {
+    }
 
     public String getNombre() {
         return nombre;

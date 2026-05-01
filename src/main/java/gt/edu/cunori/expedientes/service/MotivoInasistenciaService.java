@@ -64,8 +64,10 @@ public class MotivoInasistenciaService {
      * @param id      identificador del motivo a actualizar
      * @param request nuevos datos
      * @return el motivo actualizado como DTO de respuesta
-     * @throws ResourceNotFoundException si no se encuentra el registro con el id dado
-     * @throws BusinessException         si el nuevo nombre ya está en uso por otro registro
+     * @throws ResourceNotFoundException si no se encuentra el registro con el id
+     *                                   dado
+     * @throws BusinessException         si el nuevo nombre ya está en uso por otro
+     *                                   registro
      */
     @Transactional
     public CatalogoResponse actualizar(Long id, CatalogoRequest request) {
@@ -83,7 +85,8 @@ public class MotivoInasistenciaService {
      * Elimina un motivo de inasistencia por su identificador.
      *
      * @param id identificador del motivo a eliminar
-     * @throws ResourceNotFoundException si no se encuentra el registro con el id dado
+     * @throws ResourceNotFoundException si no se encuentra el registro con el id
+     *                                   dado
      */
     @Transactional
     public void eliminar(Long id) {

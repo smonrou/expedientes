@@ -5,7 +5,8 @@ import jakarta.validation.constraints.Size;
 
 /**
  * DTO de solicitud genérico para catálogos simples (solo campo nombre).
- * Usado por: TipoSangre, Alergia, TipoDiscapacidad, TipoActividad, MotivoInasistencia.
+ * Usado por: TipoSangre, Alergia, TipoDiscapacidad, TipoActividad,
+ * MotivoInasistencia.
  */
 public class CatalogoRequest {
 
@@ -13,7 +14,8 @@ public class CatalogoRequest {
     @Size(max = 100, message = "El nombre no puede superar los 100 caracteres")
     private String nombre;
 
-    public CatalogoRequest() {}
+    public CatalogoRequest() {
+    }
 
     public CatalogoRequest(String nombre) {
         this.nombre = nombre;

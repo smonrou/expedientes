@@ -25,7 +25,9 @@ public class EstudianteController {
         this.estudianteService = estudianteService;
     }
 
-    /** Retorna todos los estudiantes en formato resumido. Solo ADMIN y COORDINADOR. */
+    /**
+     * Retorna todos los estudiantes en formato resumido. Solo ADMIN y COORDINADOR.
+     */
     @GetMapping
     @PreAuthorize("hasAnyRole('ADMIN', 'COORDINADOR')")
     public ResponseEntity<List<EstudianteResumenResponse>> listarTodos() {
@@ -45,7 +47,10 @@ public class EstudianteController {
         return ResponseEntity.ok(estudianteService.buscar(termino, carreraId));
     }
 
-    /** Retorna el expediente completo de un estudiante por su id. Solo ADMIN y COORDINADOR. */
+    /**
+     * Retorna el expediente completo de un estudiante por su id. Solo ADMIN y
+     * COORDINADOR.
+     */
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'COORDINADOR')")
     public ResponseEntity<EstudianteResponse> obtenerPorId(@PathVariable Long id) {
@@ -88,7 +93,10 @@ public class EstudianteController {
         return ResponseEntity.ok(estudianteService.actualizarTelefonos(id, telefonos));
     }
 
-    /** Reemplaza las condiciones médicas de un estudiante. ADMIN o el propio ESTUDIANTE. */
+    /**
+     * Reemplaza las condiciones médicas de un estudiante. ADMIN o el propio
+     * ESTUDIANTE.
+     */
     @PutMapping("/{id}/condiciones-medicas")
     @PreAuthorize("hasAnyRole('ADMIN', 'ESTUDIANTE')")
     public ResponseEntity<EstudianteResponse> actualizarCondiciones(
@@ -106,7 +114,9 @@ public class EstudianteController {
         return ResponseEntity.ok(estudianteService.actualizarAlergias(id, alergias));
     }
 
-    /** Reemplaza las discapacidades de un estudiante. ADMIN o el propio ESTUDIANTE. */
+    /**
+     * Reemplaza las discapacidades de un estudiante. ADMIN o el propio ESTUDIANTE.
+     */
     @PutMapping("/{id}/discapacidades")
     @PreAuthorize("hasAnyRole('ADMIN', 'ESTUDIANTE')")
     public ResponseEntity<EstudianteResponse> actualizarDiscapacidades(
@@ -115,7 +125,10 @@ public class EstudianteController {
         return ResponseEntity.ok(estudianteService.actualizarDiscapacidades(id, discapacidades));
     }
 
-    /** Reemplaza los contactos de emergencia de un estudiante. ADMIN o el propio ESTUDIANTE. */
+    /**
+     * Reemplaza los contactos de emergencia de un estudiante. ADMIN o el propio
+     * ESTUDIANTE.
+     */
     @PutMapping("/{id}/contactos-emergencia")
     @PreAuthorize("hasAnyRole('ADMIN', 'ESTUDIANTE')")
     public ResponseEntity<EstudianteResponse> actualizarContactos(

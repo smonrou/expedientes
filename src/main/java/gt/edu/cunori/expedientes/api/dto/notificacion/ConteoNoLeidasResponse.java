@@ -8,12 +8,18 @@ public class ConteoNoLeidasResponse {
 
     private long total;
 
-    public ConteoNoLeidasResponse() {}
+    public ConteoNoLeidasResponse() {
+    }
 
     public ConteoNoLeidasResponse(long total) {
         this.total = total;
     }
 
-    public long getTotal() { return total; }
-    public void setTotal(long total) { this.total = total; }
+    public long getTotal() {
+        return total;
+    }
+
+    public void setTotal(long total) {
+        this.total = total;
+    }
 }

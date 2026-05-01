@@ -13,8 +13,14 @@ public class CambioContrasenaRequest {
     @Size(min = 8, message = "La contraseña debe tener al menos 8 caracteres")
     private String nuevaContrasena;
 
-    public CambioContrasenaRequest() {}
+    public CambioContrasenaRequest() {
+    }
 
-    public String getNuevaContrasena() { return nuevaContrasena; }
-    public void setNuevaContrasena(String nuevaContrasena) { this.nuevaContrasena = nuevaContrasena; }
+    public String getNuevaContrasena() {
+        return nuevaContrasena;
+    }
+
+    public void setNuevaContrasena(String nuevaContrasena) {
+        this.nuevaContrasena = nuevaContrasena;
+    }
 }

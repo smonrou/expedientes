@@ -25,7 +25,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     /** Verifica si ya existe un usuario registrado con el correo dado. */
     boolean existsByCorreo(String correo);
 
-    /** Verifica si ya existe un usuario registrado con el nombre de usuario dado. */
+    /**
+     * Verifica si ya existe un usuario registrado con el nombre de usuario dado.
+     */
     boolean existsByNombreUsuario(String nombreUsuario);
 
     /** Retorna todos los usuarios que tienen el rol especificado. */

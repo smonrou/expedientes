@@ -7,8 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Repositorio para los documentos adjuntos de una justificación de inasistencia.
- * Los archivos se almacenan en disco; aquí solo se persiste la ruta y metadatos.
+ * Repositorio para los documentos adjuntos de una justificación de
+ * inasistencia.
+ * Los archivos se almacenan en disco; aquí solo se persiste la ruta y
+ * metadatos.
  */
 @Repository
 public interface DocumentoJustificacionRepository extends JpaRepository<DocumentoJustificacion, Long> {

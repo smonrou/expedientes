@@ -64,8 +64,10 @@ public class TipoDiscapacidadService {
      * @param id      identificador del tipo de discapacidad a actualizar
      * @param request nuevos datos
      * @return el tipo de discapacidad actualizado como DTO de respuesta
-     * @throws ResourceNotFoundException si no se encuentra el registro con el id dado
-     * @throws BusinessException         si el nuevo nombre ya está en uso por otro registro
+     * @throws ResourceNotFoundException si no se encuentra el registro con el id
+     *                                   dado
+     * @throws BusinessException         si el nuevo nombre ya está en uso por otro
+     *                                   registro
      */
     @Transactional
     public CatalogoResponse actualizar(Long id, CatalogoRequest request) {
@@ -83,7 +85,8 @@ public class TipoDiscapacidadService {
      * Elimina un tipo de discapacidad por su identificador.
      *
      * @param id identificador del tipo de discapacidad a eliminar
-     * @throws ResourceNotFoundException si no se encuentra el registro con el id dado
+     * @throws ResourceNotFoundException si no se encuentra el registro con el id
+     *                                   dado
      */
     @Transactional
     public void eliminar(Long id) {

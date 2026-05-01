@@ -25,13 +25,24 @@ public class EstudianteSubDtos {
         @NotNull(message = "El tipo de teléfono es obligatorio")
         private TipoTelefono tipo;
 
-        public TelefonoRequest() {}
+        public TelefonoRequest() {
+        }
 
-        public String getNumero() { return numero; }
-        public void setNumero(String numero) { this.numero = numero; }
+        public String getNumero() {
+            return numero;
+        }
 
-        public TipoTelefono getTipo() { return tipo; }
-        public void setTipo(TipoTelefono tipo) { this.tipo = tipo; }
+        public void setNumero(String numero) {
+            this.numero = numero;
+        }
+
+        public TipoTelefono getTipo() {
+            return tipo;
+        }
+
+        public void setTipo(TipoTelefono tipo) {
+            this.tipo = tipo;
+        }
     }
 
     /** DTO de respuesta para un teléfono del estudiante. */
@@ -40,16 +51,32 @@ public class EstudianteSubDtos {
         private String numero;
         private TipoTelefono tipo;
 
-        public TelefonoResponse() {}
+        public TelefonoResponse() {
+        }
 
-        public Long getId() { return id; }
-        public void setId(Long id) { this.id = id; }
+        public Long getId() {
+            return id;
+        }
 
-        public String getNumero() { return numero; }
-        public void setNumero(String numero) { this.numero = numero; }
+        public void setId(Long id) {
+            this.id = id;
+        }
 
-        public TipoTelefono getTipo() { return tipo; }
-        public void setTipo(TipoTelefono tipo) { this.tipo = tipo; }
+        public String getNumero() {
+            return numero;
+        }
+
+        public void setNumero(String numero) {
+            this.numero = numero;
+        }
+
+        public TipoTelefono getTipo() {
+            return tipo;
+        }
+
+        public void setTipo(TipoTelefono tipo) {
+            this.tipo = tipo;
+        }
     }
 
     // ─────────────────────────────────────────
@@ -63,10 +90,16 @@ public class EstudianteSubDtos {
         @Size(max = 255, message = "La descripción no puede superar los 255 caracteres")
         private String descripcion;
 
-        public CondicionMedicaRequest() {}
+        public CondicionMedicaRequest() {
+        }
 
-        public String getDescripcion() { return descripcion; }
-        public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+        public String getDescripcion() {
+            return descripcion;
+        }
+
+        public void setDescripcion(String descripcion) {
+            this.descripcion = descripcion;
+        }
     }
 
     /** DTO de respuesta para una condición médica. */
@@ -74,13 +107,24 @@ public class EstudianteSubDtos {
         private Long id;
         private String descripcion;
 
-        public CondicionMedicaResponse() {}
+        public CondicionMedicaResponse() {
+        }
 
-        public Long getId() { return id; }
-        public void setId(Long id) { this.id = id; }
+        public Long getId() {
+            return id;
+        }
 
-        public String getDescripcion() { return descripcion; }
-        public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getDescripcion() {
+            return descripcion;
+        }
+
+        public void setDescripcion(String descripcion) {
+            this.descripcion = descripcion;
+        }
     }
 
     // ─────────────────────────────────────────
@@ -96,13 +140,24 @@ public class EstudianteSubDtos {
         @Size(max = 255, message = "Las observaciones no pueden superar los 255 caracteres")
         private String observaciones;
 
-        public AlergiaRequest() {}
+        public AlergiaRequest() {
+        }
 
-        public Long getAlergiaId() { return alergiaId; }
-        public void setAlergiaId(Long alergiaId) { this.alergiaId = alergiaId; }
+        public Long getAlergiaId() {
+            return alergiaId;
+        }
 
-        public String getObservaciones() { return observaciones; }
-        public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+        public void setAlergiaId(Long alergiaId) {
+            this.alergiaId = alergiaId;
+        }
+
+        public String getObservaciones() {
+            return observaciones;
+        }
+
+        public void setObservaciones(String observaciones) {
+            this.observaciones = observaciones;
+        }
     }
 
     /** DTO de respuesta para una alergia del estudiante. */
@@ -111,16 +166,32 @@ public class EstudianteSubDtos {
         private String nombre;
         private String observaciones;
 
-        public AlergiaResponse() {}
+        public AlergiaResponse() {
+        }
 
-        public Long getAlergiaId() { return alergiaId; }
-        public void setAlergiaId(Long alergiaId) { this.alergiaId = alergiaId; }
+        public Long getAlergiaId() {
+            return alergiaId;
+        }
 
-        public String getNombre() { return nombre; }
-        public void setNombre(String nombre) { this.nombre = nombre; }
+        public void setAlergiaId(Long alergiaId) {
+            this.alergiaId = alergiaId;
+        }
 
-        public String getObservaciones() { return observaciones; }
-        public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+        public String getNombre() {
+            return nombre;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public String getObservaciones() {
+            return observaciones;
+        }
+
+        public void setObservaciones(String observaciones) {
+            this.observaciones = observaciones;
+        }
     }
 
     // ─────────────────────────────────────────
@@ -136,13 +207,24 @@ public class EstudianteSubDtos {
         @Size(max = 255, message = "Las observaciones no pueden superar los 255 caracteres")
         private String observaciones;
 
-        public DiscapacidadRequest() {}
+        public DiscapacidadRequest() {
+        }
 
-        public Long getTipoDiscapacidadId() { return tipoDiscapacidadId; }
-        public void setTipoDiscapacidadId(Long tipoDiscapacidadId) { this.tipoDiscapacidadId = tipoDiscapacidadId; }
+        public Long getTipoDiscapacidadId() {
+            return tipoDiscapacidadId;
+        }
 
-        public String getObservaciones() { return observaciones; }
-        public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+        public void setTipoDiscapacidadId(Long tipoDiscapacidadId) {
+            this.tipoDiscapacidadId = tipoDiscapacidadId;
+        }
+
+        public String getObservaciones() {
+            return observaciones;
+        }
+
+        public void setObservaciones(String observaciones) {
+            this.observaciones = observaciones;
+        }
     }
 
     /** DTO de respuesta para una discapacidad del estudiante. */
@@ -151,16 +233,32 @@ public class EstudianteSubDtos {
         private String nombre;
         private String observaciones;
 
-        public DiscapacidadResponse() {}
+        public DiscapacidadResponse() {
+        }
 
-        public Long getTipoDiscapacidadId() { return tipoDiscapacidadId; }
-        public void setTipoDiscapacidadId(Long tipoDiscapacidadId) { this.tipoDiscapacidadId = tipoDiscapacidadId; }
+        public Long getTipoDiscapacidadId() {
+            return tipoDiscapacidadId;
+        }
 
-        public String getNombre() { return nombre; }
-        public void setNombre(String nombre) { this.nombre = nombre; }
+        public void setTipoDiscapacidadId(Long tipoDiscapacidadId) {
+            this.tipoDiscapacidadId = tipoDiscapacidadId;
+        }
 
-        public String getObservaciones() { return observaciones; }
-        public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+        public String getNombre() {
+            return nombre;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public String getObservaciones() {
+            return observaciones;
+        }
+
+        public void setObservaciones(String observaciones) {
+            this.observaciones = observaciones;
+        }
     }
 
     // ─────────────────────────────────────────
@@ -181,16 +279,32 @@ public class EstudianteSubDtos {
         @Size(max = 255, message = "La dirección no puede superar los 255 caracteres")
         private String direccion;
 
-        public ContactoEmergenciaRequest() {}
+        public ContactoEmergenciaRequest() {
+        }
 
-        public String getNombreCompleto() { return nombreCompleto; }
-        public void setNombreCompleto(String nombreCompleto) { this.nombreCompleto = nombreCompleto; }
+        public String getNombreCompleto() {
+            return nombreCompleto;
+        }
 
-        public String getParentesco() { return parentesco; }
-        public void setParentesco(String parentesco) { this.parentesco = parentesco; }
+        public void setNombreCompleto(String nombreCompleto) {
+            this.nombreCompleto = nombreCompleto;
+        }
 
-        public String getDireccion() { return direccion; }
-        public void setDireccion(String direccion) { this.direccion = direccion; }
+        public String getParentesco() {
+            return parentesco;
+        }
+
+        public void setParentesco(String parentesco) {
+            this.parentesco = parentesco;
+        }
+
+        public String getDireccion() {
+            return direccion;
+        }
+
+        public void setDireccion(String direccion) {
+            this.direccion = direccion;
+        }
     }
 
     /** DTO de respuesta para un contacto de emergencia. */
@@ -200,18 +314,39 @@ public class EstudianteSubDtos {
         private String parentesco;
         private String direccion;
 
-        public ContactoEmergenciaResponse() {}
+        public ContactoEmergenciaResponse() {
+        }
 
-        public Long getId() { return id; }
-        public void setId(Long id) { this.id = id; }
+        public Long getId() {
+            return id;
+        }
 
-        public String getNombreCompleto() { return nombreCompleto; }
-        public void setNombreCompleto(String nombreCompleto) { this.nombreCompleto = nombreCompleto; }
+        public void setId(Long id) {
+            this.id = id;
+        }
 
-        public String getParentesco() { return parentesco; }
-        public void setParentesco(String parentesco) { this.parentesco = parentesco; }
+        public String getNombreCompleto() {
+            return nombreCompleto;
+        }
 
-        public String getDireccion() { return direccion; }
-        public void setDireccion(String direccion) { this.direccion = direccion; }
+        public void setNombreCompleto(String nombreCompleto) {
+            this.nombreCompleto = nombreCompleto;
+        }
+
+        public String getParentesco() {
+            return parentesco;
+        }
+
+        public void setParentesco(String parentesco) {
+            this.parentesco = parentesco;
+        }
+
+        public String getDireccion() {
+            return direccion;
+        }
+
+        public void setDireccion(String direccion) {
+            this.direccion = direccion;
+        }
     }
 }
